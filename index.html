@@ -1,310 +1,513 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Active Unlock | Reparación y Tecnología</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background: #080808;
-      color: white;
-      line-height: 1.6;
-    }
-    header {
-      padding: 18px 20px;
-      background: #0d0d0d;
-      border-bottom: 1px solid #333;
-    }
-    .nav {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: 900;
-    }
-    .logo span {
-      color: #e60000;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-    }
-    .hero {
-      min-height: 75vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 20px;
-      background: radial-gradient(circle, #351010, #080808 70%);
-    }
-    .hero-content {
-      max-width: 800px;
-    }
-    .badge {
-      display: inline-block;
-      border: 1px solid #e60000;
-      color: #ff3333;
-      padding: 8px 15px;
-      border-radius: 30px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: clamp(45px, 10vw, 80px);
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-    h1 span {
-      color: #e60000;
-    }
-    .hero p {
-      color: #ccc;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-block;
-      padding: 14px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .primary {
-      background: #e60000;
-      color: white;
-    }
-    .secondary {
-      background: #151515;
-      color: white;
-      border: 1px solid #444;
-    }
-    section {
-      padding: 70px 20px;
-    }
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-    .title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .title h2 {
-      font-size: 35px;
-    }
-    .title p {
-      color: #999;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #121212;
-      border: 1px solid #292929;
-      border-radius: 15px;
-      padding: 25px;
-    }
-    .icon {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-    .card h3 {
-      margin-bottom: 10px;
-    }
-    .card p {
-      color: #aaa;
-    }
-    .brands {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-    .brand {
-      background: #181818;
-      border: 1px solid #333;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    .contact {
-      background: #120505;
-      text-align: center;
-    }
-    .contact p {
-      color: #ccc;
-      margin: 12px 0;
-    }
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #777;
-      border-top: 1px solid #222;
-    }
-    .whatsapp {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #25D366;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 28px;
-      z-index: 999;
-    }
-    @media (max-width: 700px) {
-      nav {
-        display: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Active Unlock | Reparación, Pantallas y Desbloqueo</title>
+<meta name="description" content="Active Unlock - Reparación de celulares, pantallas, liberación de fábrica, eSIM, RSIM y venta de repuestos.">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+html{
+scroll-behavior:smooth;
+}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070707;
+color:#fff;
+line-height:1.6;
+}
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(5,5,5,.96);
+border-bottom:1px solid #292929;
+backdrop-filter:blur(10px);
+}
+.nav{
+max-width:1200px;
+margin:auto;
+padding:16px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+.logo{
+font-size:24px;
+font-weight:900;
+letter-spacing:1px;
+}
+.logo span{
+color:#e60000;
+}
+nav{
+display:flex;
+gap:22px;
+}
+nav a{
+color:#fff;
+text-decoration:none;
+font-size:14px;
+font-weight:bold;
+}
+nav a:hover{
+color:#e60000;
+}
+.hero{
+min-height:88vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:70px 20px;
+background:
+radial-gradient(circle at 50% 35%,#421010 0%,#170606 30%,#070707 70%);
+position:relative;
+overflow:hidden;
+}
+.hero:before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+border:1px solid rgba(230,0,0,.2);
+border-radius:50%;
+}
+.hero-content{
+max-width:850px;
+position:relative;
+z-index:2;
+}
+.badge{
+display:inline-block;
+padding:8px 18px;
+border:1px solid #e60000;
+border-radius:30px;
+color:#ff3333;
+font-size:13px;
+font-weight:bold;
+margin-bottom:22px;
+}
+h1{
+font-size:clamp(48px,11vw,92px);
+font-weight:900;
+line-height:.95;
+letter-spacing:-2px;
+margin-bottom:25px;
+}
+h1 span{
+color:#e60000;
+}
+.hero p{
+max-width:700px;
+margin:0 auto 35px;
+font-size:19px;
+color:#ccc;
+}
+.buttons{
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+}
+.btn{
+display:inline-block;
+padding:15px 25px;
+border-radius:9px;
+text-decoration:none;
+font-weight:900;
+transition:.2s;
+}
+.btn-primary{
+background:#e60000;
+color:white;
+box-shadow:0 8px 30px rgba(230,0,0,.25);
+}
+.btn-primary:hover{
+background:#ff1a1a;
+transform:translateY(-3px);
+}
+.btn-secondary{
+background:#151515;
+border:1px solid #444;
+color:white;
+}
+.btn-secondary:hover{
+border-color:#e60000;
+transform:translateY(-3px);
+}
+section{
+padding:85px 20px;
+}
+.container{
+max-width:1150px;
+margin:auto;
+}
+.section-title{
+text-align:center;
+margin-bottom:45px;
+}
+.section-title h2{
+font-size:40px;
+margin-bottom:8px;
+}
+.section-title p{
+color:#999;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:20px;
+}
+.card{
+background:linear-gradient(145deg,#151515,#0d0d0d);
+border:1px solid #292929;
+border-radius:16px;
+padding:30px;
+transition:.25s;
+}
+.card:hover{
+border-color:#e60000;
+transform:translateY(-6px);
+box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+.icon{
+font-size:40px;
+margin-bottom:18px;
+}
+.card h3{
+font-size:21px;
+margin-bottom:10px;
+}
+.card p{
+color:#aaa;
+font-size:14px;
+}
+.store{
+background:#0b0b0b;
+}
+.product{
+background:#121212;
+border:1px solid #292929;
+border-radius:16px;
+padding:25px;
+text-align:center;
+}
+.product-icon{
+height:160px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:70px;
+background:#090909;
+border-radius:12px;
+margin-bottom:20px;
+}
+.product h3{
+margin-bottom:8px;
+}
+.product p{
+color:#999;
+font-size:14px;
+margin-bottom:18px;
+}
+.price{
+font-size:24px;
+font-weight:900;
+color:#e60000;
+margin-bottom:18px;
+}
+.brands{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+}
+.brand{
+background:#151515;
+border:1px solid #333;
+padding:11px 17px;
+border-radius:9px;
+font-weight:bold;
+}
+.contact{
+background:linear-gradient(135deg,#180606,#080808);
+}
+.contact-box{
+max-width:800px;
+margin:auto;
+padding:35px;
+background:#111;
+border:1px solid #333;
+border-radius:18px;
+text-align:center;
+}
+.contact-item{
+margin:18px 0;
+color:#ccc;
+}
+.contact-item strong{
+color:white;
+}
+footer{
+border-top:1px solid #252525;
+padding:30px 20px;
+text-align:center;
+color:#777;
+font-size:13px;
+}
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+width:62px;
+height:62px;
+border-radius:50%;
+background:#25D366;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:29px;
+z-index:9999;
+box-shadow:0 5px 25px rgba(0,0,0,.5);
+}
+@media(max-width:700px){
+nav{
+display:none;
+}
+.hero{
+min-height:80vh;
+}
+.hero p{
+font-size:16px;
+}
+section{
+padding:65px 16px;
+}
+.section-title h2{
+font-size:32px;
+}
+.card{
+padding:24px;
+}
+}
+</style>
 </head>
 <body>
 <header>
-  <div class="nav">
-    <div class="logo">
-      ACTIVE <span>UNLOCK</span>
-    </div>
+<div class="nav">
+<div class="logo">
+ACTIVE <span>UNLOCK</span>
+</div>
 <nav>
-  <a href="#inicio">Inicio</a>
-  <a href="#servicios">Servicios</a>
-  <a href="#marcas">Marcas</a>
-  <a href="#contacto">Contacto</a>
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#tienda">Tienda</a>
+<a href="#marcas">Marcas</a>
+<a href="#contacto">Contacto</a>
 </nav>
-  </div>
+</div>
 </header>
+<main>
 <section class="hero" id="inicio">
-  <div class="hero-content">
+<div class="hero-content">
 <div class="badge">
-  TECNOLOGÍA • REPARACIÓN • DESBLOQUEO
+TECNOLOGÍA • REPARACIÓN • DESBLOQUEO
 </div>
 <h1>
-  ACTIVE <span>UNLOCK</span>
+ACTIVE <span>UNLOCK</span>
 </h1>
 <p>
-  Soluciones profesionales para celulares,
-  pantallas, reparaciones, liberación de fábrica,
-  eSIM y RSIM.
+Reparación de celulares, venta de pantallas,
+liberación de fábrica, eSIM, RSIM y soluciones
+profesionales para dispositivos móviles.
 </p>
 <div class="buttons">
-  <a class="btn primary"
-     href="https://wa.me/5355323969"
-     target="_blank">
-    💬 WhatsApp
-  </a>
-  <a class="btn secondary" href="#servicios">
-    Ver servicios
-  </a>
+
+💬 Hablar por WhatsApp
+
+</a>
+
+Ver servicios
+
+</a>
 </div>
-  </div>
+</div>
 </section>
 <section id="servicios">
-  <div class="container">
-<div class="title">
-  <h2>Nuestros servicios</h2>
-  <p>Soluciones profesionales para tu dispositivo</p>
+<div class="container">
+<div class="section-title">
+<h2>Nuestros servicios</h2>
+<p>
+Soluciones profesionales para tu celular
+</p>
 </div>
 <div class="grid">
-  <div class="card">
-    <div class="icon">📱</div>
-    <h3>Pantallas</h3>
-    <p>
-      Venta de pantallas con instalación
-      o solamente el repuesto.
-    </p>
-  </div>
-  <div class="card">
-    <div class="icon">🔧</div>
-    <h3>Reparaciones</h3>
-    <p>
-      Servicio técnico para diferentes
-      modelos de celulares.
-    </p>
-  </div>
-  <div class="card">
-    <div class="icon">🔓</div>
-    <h3>Liberación</h3>
-    <p>
-      Liberación de fábrica y soluciones
-      de red para dispositivos compatibles.
-    </p>
-  </div>
-  <div class="card">
-    <div class="icon">📶</div>
-    <h3>eSIM / RSIM</h3>
-    <p>
-      Configuración y soluciones eSIM
-      y RSIM.
-    </p>
-  </div>
+<div class="card">
+<div class="icon">📱</div>
+<h3>Pantallas</h3>
+<p>
+Venta de pantallas con instalación
+o solamente el repuesto para técnicos
+y clientes.
+</p>
 </div>
-  </div>
+<div class="card">
+<div class="icon">🔧</div>
+<h3>Reparaciones</h3>
+<p>
+Servicio técnico para diferentes
+marcas y modelos de celulares.
+</p>
+</div>
+<div class="card">
+<div class="icon">🔓</div>
+<h3>Liberación de fábrica</h3>
+<p>
+Soluciones de liberación y servicios
+de red para dispositivos compatibles.
+</p>
+</div>
+<div class="card">
+<div class="icon">📶</div>
+<h3>eSIM / RSIM</h3>
+<p>
+Configuración y soluciones eSIM
+y RSIM para dispositivos compatibles.
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="store" id="tienda">
+<div class="container">
+<div class="section-title">
+<h2>🛒 Tienda</h2>
+<p>
+Próximamente podrás comprar tus repuestos
+directamente desde nuestra web.
+</p>
+</div>
+<div class="grid">
+<div class="product">
+<div class="product-icon">
+📱
+</div>
+<h3>Pantallas para iPhone</h3>
+<p>
+Diferentes modelos disponibles.
+</p>
+<div class="price">
+Consultar precio
+</div>
+
+Consultar
+
+</a>
+</div>
+<div class="product">
+<div class="product-icon">
+📱
+</div>
+<h3>Pantallas Samsung</h3>
+<p>
+Repuestos originales y compatibles
+según disponibilidad.
+</p>
+<div class="price">
+Consultar precio
+</div>
+
+Consultar
+
+</a>
+</div>
+<div class="product">
+<div class="product-icon">
+🔧
+</div>
+<h3>Repuestos</h3>
+<p>
+Componentes y piezas para reparación.
+</p>
+<div class="price">
+Consultar precio
+</div>
+
+Consultar
+
+</a>
+</div>
+</div>
+</div>
 </section>
 <section id="marcas">
-  <div class="container">
-<div class="title">
-  <h2>Trabajamos con</h2>
-  <p>Entre otras marcas y modelos</p>
+<div class="container">
+<div class="section-title">
+<h2>Marcas que trabajamos</h2>
+<p>
+Entre otras marcas y modelos
+</p>
 </div>
 <div class="brands">
-  <div class="brand">Apple</div>
-  <div class="brand">Samsung</div>
-  <div class="brand">Motorola</div>
-  <div class="brand">Xiaomi</div>
-  <div class="brand">TECNO</div>
-  <div class="brand">realme</div>
-  <div class="brand">Infinix</div>
-  <div class="brand">OPPO</div>
-  <div class="brand">OnePlus</div>
-  <div class="brand">Honor</div>
+<div class="brand">Apple</div>
+<div class="brand">Samsung</div>
+<div class="brand">Motorola</div>
+<div class="brand">Xiaomi</div>
+<div class="brand">TECNO</div>
+<div class="brand">realme</div>
+<div class="brand">Infinix</div>
+<div class="brand">OPPO</div>
+<div class="brand">OnePlus</div>
+<div class="brand">Honor</div>
 </div>
-  </div>
+</div>
 </section>
 <section class="contact" id="contacto">
-  <div class="container">
-<div class="title">
-  <h2>Contáctanos</h2>
-  <p>Estamos listos para ayudarte</p>
-</div>
-<p>📲 WhatsApp: +53 55323969</p>
+<div class="container">
+<div class="section-title">
+<h2>Contáctanos</h2>
 <p>
-  📍 Calle Maceo #104 / Calle Arias y Calle Agramonte
+Estamos listos para ayudarte
 </p>
-<a class="btn primary"
-   href="https://wa.me/5355323969"
-   target="_blank">
-  Escribir por WhatsApp
+</div>
+<div class="contact-box">
+<div class="contact-item">
+
+📲 WhatsApp
+
++53 55323969
+
+</div>
+<div class="contact-item">
+
+📍 Dirección
+
+Calle Maceo #104 / Calle Arias y Calle Agramonte
+
+</div>
+
+Escribir por WhatsApp
+
 </a>
-  </div>
+</div>
+</div>
 </section>
+</main>
 <footer>
-  © 2026 Active Unlock — Todos los derechos reservados.
+
+© 2026 Active Unlock — Todos los derechos reservados.
+
 </footer>
 
 💬
+
+</a>
 </body>
 </html>
