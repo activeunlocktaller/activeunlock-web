@@ -1,628 +1,555 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Active Unlock | Servicio Técnico de Celulares</title>
-    <meta
-      name="description"
-      content="Active Unlock: liberación, reparación, eSIM, software, pantallas y accesorios para celulares."
-    />
+    <meta name="description" content="Active Unlock: servicio técnico de celulares, liberación, reparación, software, pantallas y accesorios.">
     <style>
-      :root {
-        --bg: #050505;
-        --bg2: #12080a;
-        --panel: rgba(13, 13, 13, 0.88);
-        --line: rgba(255, 66, 66, 0.95);
-        --red: #f0001f;
-        --red2: #ff3a4d;
-        --red3: #ff5b3d;
-        --text: #f6f6f6;
-        --muted: #b8b8b8;
-        --silver: #dedede;
-        --silver2: #b5b5b5;
-        --shadow: rgba(255, 0, 40, 0.55);
+      :root{
+        --bg:#040404;
+        --bg2:#0a0a0a;
+        --panel:#121212;
+        --panel2:#181818;
+        --red:#e50914;
+        --red2:#ff3241;
+        --white:#f8f8f8;
+        --muted:#adadad;
+        --line:#2b2b2b;
+        --silver:#d7d7d7;
+        --shadow:rgba(0,0,0,.6);
+        --glow:rgba(255,35,35,.7);
       }
 
-      * { box-sizing: border-box; }
-
-      html, body {
-        margin: 0;
-        min-height: 100%;
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;
         background:
-          radial-gradient(circle at 50% 0%, rgba(255, 0, 38, 0.22), transparent 26%),
-          radial-gradient(circle at 12% 75%, rgba(255, 0, 28, 0.08), transparent 25%),
-          radial-gradient(circle at 88% 75%, rgba(255, 0, 28, 0.08), transparent 25%),
-          #030303;
-        color: var(--text);
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+          radial-gradient(circle at 50% 10%, rgba(255,0,0,.12), transparent 30%),
+          linear-gradient(180deg, #030303 0%, #050505 100%);
+        color:var(--white);
+        font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        line-height:1.5;
+      }
+      a{text-decoration:none; color:inherit}
+      img{display:block; max-width:100%}
+      button,input,select{font:inherit}
+      .container{max-width:1280px; margin:0 auto; padding:0 18px}
+
+      .top{
+        position:sticky; top:0; z-index:100;
+        background:rgba(5,5,5,.86);
+        backdrop-filter:blur(14px);
+        border-bottom:1px solid rgba(255,255,255,.05);
+        box-shadow:0 8px 26px rgba(0,0,0,.25);
+      }
+      .nav{
+        max-width:1280px; margin:0 auto; padding:14px 18px;
+        display:flex; align-items:center; justify-content:space-between; gap:18px;
+      }
+      .brand{display:flex; align-items:center; gap:12px; font-size:24px; font-weight:900; letter-spacing:-1px; color:#fff}
+      .brand-mark{
+        width:22px; height:22px; border-radius:50%;
+        background:radial-gradient(circle at 35% 35%, #ff5a5a 0%, #e50914 32%, #8d0009 100%);
+        border:2px solid rgba(255,255,255,.8);
+        box-shadow:0 0 18px rgba(229,9,20,.9); position:relative;
+      }
+      .brand-mark:after{
+        content:""; position:absolute; inset:5px; border-radius:50%;
+        border:1px solid rgba(255,255,255,.25);
+        background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), transparent 70%);
+      }
+      .brand b{color:var(--red2)}
+      .navlinks{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+      .menu-trigger{
+        background:transparent; color:#f1f1f1; border:1px solid transparent;
+        border-radius:10px; padding:9px 12px; cursor:pointer; font-weight:600; transition:.2s ease;
+      }
+      .menu-trigger:hover{background:rgba(255,0,0,.06); border-color:rgba(255,40,40,.35)}
+
+      .cart{
+        border:0; background:var(--red); color:#fff; font-weight:900;
+        border-radius:11px; padding:11px 16px; cursor:pointer;
+        box-shadow:0 16px 30px rgba(229,9,20,.35);
       }
 
-      body {
-        display: flex;
-        justify-content: center;
-        padding: 18px 18px 30px;
+      .hero-shell{max-width:1280px; margin:0 auto; padding:26px 18px 0}
+      .hero-brand{
+        position:relative; overflow:hidden; border-radius:30px;
+        background:radial-gradient(circle at 50% 14%, rgba(255,0,0,.22), transparent 25%),
+          linear-gradient(180deg, rgba(10,10,10,.96), rgba(8,8,8,.96));
+        border:1.5px solid rgba(255,255,255,.06);
+        box-shadow:0 28px 70px rgba(0,0,0,.6), inset 0 0 30px rgba(255,0,0,.08);
+        padding:48px 20px 28px;
       }
-
-      .page {
-        width: min(1360px, 100%);
-        position: relative;
+      .hero-brand:before{
+        content:""; position:absolute; left:0; right:0; bottom:0; height:70%;
+        background:linear-gradient(180deg, rgba(255,0,0,0), rgba(255,0,0,.08)); pointer-events:none;
       }
-
-      .noise {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.16;
-        background-image:
-          linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.02)),
-          radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 18%),
-          radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 18%);
-      }
-
-      .hero {
-        position: relative;
-        padding: 0 14px 0;
-      }
-
-      .orbit {
-        position: relative;
-        width: min(920px, 70vw);
-        aspect-ratio: 1;
-        margin: 0 auto 10px;
-        filter: drop-shadow(0 0 18px rgba(255, 0, 30, 0.6));
-      }
-
-      .ring {
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        background: linear-gradient(145deg, #f5f5f5 0%, #b3b3b3 20%, #fefefe 35%, #8c8c8c 54%, #f5f5f5 65%, #8a8a8a 100%);
+      .logo-stack{position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center}
+      .logo-circle{width:min(72vw, 600px); aspect-ratio:1; position:relative; display:grid; place-items:center; filter:drop-shadow(0 0 42px rgba(255,0,0,.2))}
+      .logo-ring{
+        position:absolute; inset:0; border-radius:50%;
+        background:linear-gradient(135deg, #ffffff 0%, #dfe2e4 18%, #ffffff 26%, #b7bcc2 42%, #eeeeee 60%, #9096a0 100%);
+        transform:rotate(-12deg);
         box-shadow:
-          inset 0 0 0 18px rgba(0, 0, 0, 0.88),
-          inset 0 0 0 30px rgba(255,255,255,0.12),
-          0 0 0 2px rgba(255,255,255,0.9);
-        overflow: hidden;
+          0 0 0 12px rgba(255,255,255,.06),
+          0 0 50px rgba(255,0,0,.45),
+          0 0 130px rgba(255,0,0,.18),
+          inset 0 6px 14px rgba(255,255,255,.32),
+          inset 0 -6px 14px rgba(0,0,0,.28);
       }
-
-      .ring::before {
-        content: "";
-        position: absolute;
-        inset: 7%;
-        border-radius: 50%;
-        background: radial-gradient(circle at 50% 50%, #2b0007 0%, #090909 35%, #030303 68%, #000 100%);
-        box-shadow: inset 0 0 26px rgba(255, 0, 22, 0.35);
+      .logo-ring:before{
+        content:""; position:absolute; inset:17%; border-radius:50%;
+        background:radial-gradient(circle at 45% 40%, #ff3a45 0%, #e50914 28%, #8b0007 100%);
+        box-shadow: inset 0 2px 10px rgba(255,255,255,.18), inset -6px -6px 18px rgba(0,0,0,.35), 0 0 42px rgba(255,0,0,.82);
       }
-
-      .ring::after {
-        content: "";
-        position: absolute;
-        inset: 17%;
-        border-radius: 50%;
-        background: radial-gradient(circle at 50% 50%, #ff2a32 0%, #d40010 28%, #96000d 52%, rgba(0,0,0,0.96) 100%);
-        box-shadow:
-          0 0 28px rgba(255, 70, 86, 0.8),
-          inset 0 0 36px rgba(255,255,255,0.2);
+      .logo-ring:after{
+        content:""; position:absolute; inset:6%; border-radius:50%;
+        border:30px solid rgba(255,255,255,.08); box-shadow:inset 0 0 12px rgba(0,0,0,.5);
       }
-
-      .ring-cut {
-        position: absolute;
-        inset: 10% 10% 10% 10%;
-        border-radius: 50%;
-        background: linear-gradient(145deg, #f7f7f7, #b5b5b5 25%, #fefefe 35%, #8f8f8f 60%, #e3e3e3 100%);
-        transform: rotate(26deg) scaleX(0.93);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        box-shadow: inset 0 0 0 18px rgba(0,0,0,0.85);
+      .logo-cut{
+        position:absolute; width:76%; height:76%; border-radius:50%;
+        background:radial-gradient(circle at 50% 50%, rgba(0,0,0,.96), rgba(0,0,0,.99));
+        border:18px solid rgba(255,255,255,.09); box-shadow:inset 0 0 22px rgba(255,0,0,.08);
       }
-
-      .ring-cut::before {
-        content: "";
-        position: absolute;
-        inset: 17%;
-        border-radius: 50%;
-        background: radial-gradient(circle at 50% 50%, rgba(255, 0, 30, 0.95), rgba(180, 0, 11, 0.9) 40%, rgba(5,5,5,1) 72%);
-        box-shadow: inset 0 0 30px rgba(255,255,255,0.12), 0 0 22px rgba(255,70,86,0.8);
+      .logo-cut:before{content:""; position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 48% 48%, rgba(255,0,0,.22), transparent 62%)}
+      .logo-spark{
+        position:absolute; width:20px; height:20px; border-radius:50%; background:#ff2b2b;
+        right:14%; top:20%; box-shadow:0 0 20px rgba(255,40,40,.9), 0 0 42px rgba(255,40,40,.5);
+        animation:sparkPulse 2.8s ease-in-out infinite;
       }
+      .logo-spark.two{left:16%; right:auto; top:28%; animation-delay:.6s}
+      @keyframes sparkPulse{0%,100%{transform:scale(1); opacity:1}50%{transform:scale(1.25); opacity:.8}}
 
-      .ring-cut::after {
-        content: "";
-        position: absolute;
-        inset: 30%;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.06);
-        box-shadow: 0 0 16px rgba(255,255,255,0.12);
-      }
+      .brand-title{margin-top:-10px; font-size:clamp(3rem,8vw,9rem); line-height:.84; letter-spacing:-.09em; font-weight:950}
+      .brand-title .white{color:#f7f7f7; text-shadow:0 0 22px rgba(255,255,255,.12), 0 4px 12px rgba(0,0,0,.5)}
+      .brand-title .red{color:var(--red); text-shadow:0 0 28px rgba(255,0,0,.55), 0 4px 12px rgba(0,0,0,.45)}
+      .subtitle{margin-top:16px; color:#efefef; text-transform:uppercase; letter-spacing:.2em; font-size:clamp(1rem,2vw,2rem); font-weight:800}
+      .stroke-line{width:min(68vw, 680px); height:8px; margin:24px auto 18px; border-radius:999px; background:linear-gradient(90deg, transparent 0%, rgba(255,30,30,.92) 8%, rgba(255,30,30,.92) 92%, transparent 100%); box-shadow:0 0 20px rgba(255,30,30,.75)}
 
-      .scan {
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        background: repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.14) 0 2px, rgba(255,255,255,0) 2px 5px);
-        mix-blend-mode: screen;
-        opacity: 0.55;
-      }
+      .services-mini{width:min(1100px,100%); display:grid; grid-template-columns:repeat(auto-fit, minmax(130px,1fr)); gap:16px; margin-top:14px}
+      .service-mini{min-height:110px; border:2px solid rgba(255,42,42,.9); border-radius:20px; background:linear-gradient(180deg, rgba(255,38,38,.06), rgba(0,0,0,.24)); box-shadow:0 0 20px rgba(255,0,0,.08), inset 0 0 0 1px rgba(255,255,255,.04); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:8px; padding:14px 10px; transition:.28s ease}
+      .service-mini:hover{transform:translateY(-4px); box-shadow:0 0 28px rgba(255,0,0,.15), inset 0 0 0 1px rgba(255,255,255,.05)}
+      .service-mini .icon{font-size:2.2rem}
+      .service-mini .label{font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:800; line-height:1.3; color:#f2f2f2}
 
-      .glow {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 50%;
-        height: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 0, 36, 0.95), rgba(255, 0, 36, 0.2) 40%, transparent 70%);
-        filter: blur(18px);
-        opacity: 0.85;
-      }
+      .section-split{max-width:1280px; margin:32px auto 0; padding:0 18px 18px}
+      .split-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px}
+      .panel{position:relative; overflow:hidden; border-radius:28px; min-height:470px; transition:.32s ease; cursor:pointer}
+      .panel:hover{transform:translateY(-6px)}
+      .panel-client{background:radial-gradient(circle at 50% 18%, rgba(255,33,33,.28), transparent 26%), radial-gradient(circle at 20% 80%, rgba(255,110,110,.12), transparent 18%), linear-gradient(135deg, rgba(18,18,18,.8), rgba(6,6,6,.94)); border:1.5px solid rgba(255,255,255,.08); box-shadow:0 30px 70px rgba(0,0,0,.52)}
+      .panel-client::before{content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 38%, rgba(255,0,0,.82), transparent 12%), linear-gradient(135deg, transparent 0 39%, rgba(255,255,255,.05) 39% 42%, transparent 42% 100%), linear-gradient(45deg, transparent 0 56%, rgba(255,255,255,.04) 56% 58%, transparent 58% 100%); opacity:.85}
+      .panel-client::after{content:""; position:absolute; width:420px; height:420px; right:-90px; top:40px; border-radius:50%; background:radial-gradient(circle, rgba(255,40,40,.72), rgba(255,40,40,.18) 34%, rgba(0,0,0,0) 62%); filter:blur(14px); opacity:.9}
+      .panel-tech{background:radial-gradient(circle at 50% 10%, rgba(255,0,0,.18), transparent 30%), linear-gradient(180deg, rgba(15,15,15,.96), rgba(6,6,6,.98)); border:1.5px solid rgba(255,42,42,.25); box-shadow:0 30px 80px rgba(0,0,0,.62), inset 0 0 30px rgba(255,0,0,.08)}
+      .panel-inner{position:relative; z-index:1; height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:30px 26px 24px; background:linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.68))}
+      .panel-badge{display:inline-block; background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(8px); border-radius:12px; padding:8px 14px; font-size:11px; font-weight:900; letter-spacing:.15em; text-transform:uppercase}
+      .panel-tech .panel-badge{background:rgba(255,48,48,.08); border-color:rgba(255,48,48,.4); color:#ffb3b8}
+      .panel-title{margin:20px 0 12px; font-size:clamp(2.2rem,4vw,4rem); line-height:.92; letter-spacing:-.09em; font-weight:960}
+      .panel-copy{color:rgba(255,255,255,.88); font-size:1.04rem; line-height:1.7; max-width:540px}
+      .panel-list{margin:22px 0 0; padding:0 0 0 20px; color:#f0f0f0; display:grid; gap:10px}
+      .panel-list li{position:relative; line-height:1.5}
+      .panel-list li:before{content:"▸"; position:absolute; left:-18px; color:var(--red2)}
+      .panel-footer{margin-top:24px; display:flex; gap:12px}
+      .primary-btn,.ghost-btn{border-radius:13px; padding:13px 20px; font-weight:900; cursor:pointer; transition:.25s ease; border:none; font-size:14px}
+      .primary-btn{background:var(--red); color:#fff; box-shadow:0 18px 36px rgba(229,9,20,.35)}
+      .primary-btn:hover{transform:translateY(-2px); filter:brightness(1.06)}
+      .ghost-btn{color:#f4f4f4; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(10px)}
+      .ghost-btn:hover{transform:translateY(-2px)}
 
-      .lock {
-        position: absolute;
-        right: 10%;
-        top: 9%;
-        width: 104px;
-        height: 104px;
-        border-radius: 50%;
-        background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.12));
-        box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.1), 0 0 18px rgba(255, 0, 18, 0.45);
-        opacity: 0.92;
-      }
+      .shop-wrap{max-width:1280px; margin:0 auto; padding:0 18px 30px}
+      .shop-box{background:linear-gradient(180deg, rgba(14,14,14,.88), rgba(8,8,8,.96)); border:1px solid rgba(255,255,255,.08); border-radius:26px; padding:22px 18px 20px; box-shadow:0 30px 70px rgba(0,0,0,.5)}
+      .shop-header{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:18px}
+      .shop-header h3{margin:0; font-size:clamp(2rem,3vw,3rem); letter-spacing:-.06em}
+      .shop-header .live{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,80,80,.45); background:rgba(255,48,48,.08); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.08em}
+      .shop-header .live:before{content:""; width:8px; height:8px; border-radius:50%; background:#38d17b; box-shadow:0 0 10px rgba(56,209,123,.85)}
+      .shopbar{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 20px}
+      .search,.select{background:#0d0d0d; border:1px solid #2d2d2d; color:#fff; border-radius:10px; padding:12px 14px; outline:none}
+      .search{flex:1; min-width:220px}
+      .select{min-width:190px}
+      .products{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px}
+      .card{background:linear-gradient(145deg,#141414,#0a0a0a); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:16px}
+      .tag{display:inline-block; font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:#ff8a92; background:rgba(255,48,48,.08); border:1px solid rgba(255,48,48,.35); padding:5px 8px; border-radius:999px}
+      .card h3{margin:12px 0 10px; min-height:42px; line-height:1.22; font-size:16px}
+      .price{font-size:22px; font-weight:950; letter-spacing:-.05em}
+      .usd{color:#aaa; font-size:12px; margin-top:3px}
+      .stock{margin-top:10px; font-size:12px; font-weight:700}
+      .stock.ok{color:#7fe0a4}
+      .stock.no{color:#ff6c75}
+      .card button{width:100%; margin-top:12px; border:1px solid rgba(255,255,255,.18); background:#fff; color:#111; border-radius:10px; padding:10px 12px; font-weight:900; cursor:pointer}
+      .card button:disabled{background:#303030; border-color:#303030; color:#7b7b7b; cursor:not-allowed}
 
-      .lock::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 54px;
-        height: 54px;
-        transform: translate(-50%,-50%);
-        border: 9px solid var(--red2);
-        border-radius: 18px 18px 16px 16px;
-        box-shadow: 0 0 14px rgba(255, 93, 93, 0.5);
-      }
+      .brand-wall{max-width:1280px; margin:0 auto; padding:12px 18px 30px}
+      .brand-wrap{overflow:hidden; position:relative; border-top:1.5px solid rgba(255,255,255,.08); border-bottom:1.5px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,.002)); padding:18px 0; mask-image:linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image:linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)}
+      .brand-row{display:flex; width:max-content; gap:12px; animation:brandMove 28s linear infinite}
+      .brand-row.reverse{animation-direction:reverse; animation-duration:34s}
+      @keyframes brandMove{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+      .brand-chip{min-width:155px; height:60px; border-radius:16px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(145deg,#161616,#0a0a0a); display:flex; align-items:center; justify-content:center; gap:10px; font-weight:900; letter-spacing:-.05em; font-size:1rem; color:#f5f5f5; padding:0 16px; white-space:nowrap; box-shadow:0 10px 20px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.05); transition:.25s ease}
+      .brand-chip:hover{transform:translateY(-3px); border-color:rgba(255,48,48,.5); box-shadow:0 16px 34px rgba(0,0,0,.35), 0 0 18px rgba(255,0,0,.12)}
+      .brand-chip .mark{width:30px; height:30px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); color:#ff7780; font-size:.85rem; font-weight:900}
+      .brand-sub{text-align:center; margin-top:14px; color:#787878; letter-spacing:.18em; text-transform:uppercase; font-size:12px; font-weight:800}
 
-      .lock::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 18px;
-        height: 32px;
-        transform: translate(-50%,-90%);
-        border: 9px solid var(--red2);
-        border-bottom: 0;
-        border-radius: 18px 18px 0 0;
-        box-shadow: 0 0 14px rgba(255, 93, 93, 0.5);
-      }
+      .modal{position:fixed; inset:0; z-index:130; background:rgba(0,0,0,.76); backdrop-filter:blur(8px); display:none; align-items:center; justify-content:center; padding:18px}
+      .modal.open{display:flex}
+      .modalbox{width:min(590px,100%); border-radius:20px; background:#0a0a0a; border:1px solid rgba(255,255,255,.12); box-shadow:0 26px 80px rgba(0,0,0,.75); padding:22px 20px}
+      .close{float:right; background:none; border:0; color:#fff; font-size:26px; cursor:pointer}
+      .modalbox h3{margin:8px 0 18px; font-size:28px; letter-spacing:-.06em}
+      .cartrow{display:flex; justify-content:space-between; align-items:center; gap:12px; border-bottom:1px solid rgba(255,255,255,.08); padding:10px 0}
+      .cartrow span{font-size:14px}
+      .cartrow small{display:block; color:#aaa; margin-top:4px}
+      .cartrow button{background:none; border:0; color:#ff7d85; font-size:20px; cursor:pointer}
+      .total{margin-top:18px; text-align:right; font-size:20px; font-weight:900}
+      .cart-cta{width:100%; margin-top:18px; border:0; border-radius:12px; background:var(--red); color:#fff; padding:12px 14px; font-weight:900; cursor:pointer}
 
-      .brand {
-        position: relative;
-        z-index: 3;
-        margin-top: -14px;
-        text-align: center;
-      }
+      .wa{position:fixed; right:20px; bottom:20px; z-index:90; background:#25d366; color:#fff; padding:15px 18px; border-radius:999px; font-weight:950; box-shadow:0 18px 30px rgba(0,0,0,.4)}
+      footer{max-width:1280px; margin:0 auto; padding:24px 18px 40px; color:#8a8a8a; text-align:center; border-top:1px solid rgba(255,255,255,.04)}
 
-      .brand h1 {
-        margin: 0;
-        font-weight: 900;
-        font-size: clamp(4rem, 9vw, 12rem);
-        letter-spacing: -0.08em;
-        line-height: 0.9;
-        color: rgba(255,255,255,0.96);
-        text-shadow: 0 0 0 #fff, 0 0 16px rgba(255, 0, 41, 0.1), 0 0 28px rgba(255, 0, 41, 0.18);
-      }
-
-      .brand .sub {
-        position: relative;
-        display: inline-block;
-        margin-top: 10px;
-        padding: 0 28px 10px;
-        font-size: clamp(1.2rem, 2vw, 2.8rem);
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--text);
-        text-shadow: 0 0 18px rgba(255, 0, 38, 0.4);
-      }
-
-      .brand .sub::before,
-      .brand .sub::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 20%;
-        height: 4px;
-        background: linear-gradient(90deg, transparent, var(--red), transparent);
-        transform: translateY(-50%);
-      }
-
-      .brand .sub::before { left: -4%; }
-      .brand .sub::after { right: -4%; }
-
-      .service-strip {
-        display: grid;
-        grid-template-columns: repeat(6, minmax(130px, 1fr));
-        gap: 18px;
-        justify-content: center;
-        max-width: 1180px;
-        margin: 24px auto 0;
-      }
-
-      .service {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 132px;
-        padding: 18px 12px 12px;
-        border: 3px solid rgba(255, 82, 82, 0.9);
-        border-radius: 24px;
-        background: rgba(11, 11, 11, 0.25);
-        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), 0 0 18px rgba(255, 0, 30, 0.12);
-        text-align: center;
-      }
-
-      .icon {
-        width: 52px;
-        height: 52px;
-        margin-bottom: 11px;
-        position: relative;
-        color: #ff4b5a;
-        filter: drop-shadow(0 0 10px rgba(255, 80, 80, 0.6));
-      }
-
-      .icon.locked::before,
-      .icon.locked::after,
-      .icon.tool::before,
-      .icon.tool::after,
-      .icon.chip::before,
-      .icon.chip::after,
-      .icon.phone::before,
-      .icon.phone::after,
-      .icon.cart::before,
-      .icon.cart::after,
-      .icon.cloud::before,
-      .icon.cloud::after {
-        content: "";
-        position: absolute;
-      }
-
-      .icon.locked::before {
-        width: 28px;
-        height: 22px;
-        left: 12px;
-        top: 18px;
-        border: 4px solid var(--red2);
-        border-radius: 8px 8px 10px 10px;
-      }
-
-      .icon.locked::after {
-        width: 14px;
-        height: 18px;
-        left: 19px;
-        top: 3px;
-        border: 4px solid var(--red2);
-        border-bottom: 0;
-        border-radius: 12px 12px 0 0;
-      }
-
-      .icon.tool::before {
-        width: 42px;
-        height: 12px;
-        left: 5px;
-        top: 18px;
-        border: 4px solid var(--red2);
-        transform: rotate(-42deg);
-        border-radius: 8px;
-      }
-
-      .icon.tool::after {
-        width: 10px;
-        height: 12px;
-        right: 7px;
-        top: 18px;
-        border-top: 5px solid var(--red2);
-        border-right: 5px solid var(--red2);
-        transform: rotate(45deg);
-      }
-
-      .icon.chip::before {
-        width: 44px;
-        height: 26px;
-        left: 4px;
-        top: 13px;
-        border: 4px solid var(--red2);
-        border-radius: 8px;
-        background: linear-gradient(90deg, transparent 0 20%, rgba(255,255,255,0.06) 20% 30%, transparent 30% 45%, rgba(255,255,255,0.06) 45% 55%, transparent 55% 100%);
-      }
-
-      .icon.chip::after {
-        width: 22px;
-        height: 6px;
-        left: 15px;
-        top: 23px;
-        background: var(--red2);
-        box-shadow: 0 -12px 0 var(--red2), 0 12px 0 var(--red2);
-      }
-
-      .icon.phone::before {
-        width: 32px;
-        height: 40px;
-        left: 10px;
-        top: 6px;
-        border: 4px solid var(--red2);
-        border-radius: 8px;
-      }
-
-      .icon.phone::after {
-        width: 8px;
-        height: 6px;
-        left: 22px;
-        bottom: 8px;
-        background: var(--red2);
-        border-radius: 4px;
-      }
-
-      .icon.cart::before {
-        width: 26px;
-        height: 18px;
-        left: 12px;
-        top: 18px;
-        border: 4px solid var(--red2);
-        border-top: 0;
-        border-radius: 0 0 9px 9px;
-      }
-
-      .icon.cart::after {
-        width: 22px;
-        height: 18px;
-        left: 15px;
-        top: 8px;
-        border: 4px solid var(--red2);
-        border-bottom: 0;
-        border-radius: 12px 12px 0 0;
-      }
-
-      .icon.cloud::before {
-        width: 34px;
-        height: 18px;
-        left: 9px;
-        top: 22px;
-        background: var(--red2);
-        border-radius: 14px 14px 12px 12px;
-        box-shadow: -10px -10px 0 2px var(--red2), 10px -8px 0 2px var(--red2);
-      }
-
-      .icon.cloud::after {
-        width: 12px;
-        height: 12px;
-        left: 20px;
-        top: 14px;
-        border-radius: 50%;
-        background: var(--red2);
-        box-shadow: -14px 8px 0 0 var(--red2), 14px 8px 0 0 var(--red2);
-      }
-
-      .service strong {
-        display: block;
-        font-size: 0.82rem;
-        line-height: 1.15;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-      }
-
-      .brand-row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 26px;
-        margin: 18px auto 0;
-        padding: 12px 18px;
-        max-width: 1080px;
-        border-top: 2px solid rgba(255, 79, 79, 0.4);
-      }
-
-      .brand-tag {
-        font-weight: 800;
-        letter-spacing: 0.05em;
-        font-size: clamp(1rem, 1.3vw, 2rem);
-        color: rgba(255,255,255,0.9);
-        opacity: 0.9;
-      }
-
-      .brand-tag.logo {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .brand-tag.logo::before {
-        content: "";
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: linear-gradient(145deg, #fefefe, #8a8a8a);
-        box-shadow: 0 0 8px rgba(255,255,255,0.4);
-      }
-
-      .support-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        flex-wrap: wrap;
-        max-width: 1180px;
-        margin: 24px auto 0;
-        padding: 10px 12px 0;
-      }
-
-      .mini-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--text);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-size: 0.84rem;
-        padding: 10px 16px;
-        border-radius: 16px;
-        background: rgba(255,255,255,0.02);
-        border: 2px solid rgba(255, 71, 71, 0.4);
-      }
-
-      .mini-pill .check {
-        width: 20px;
-        height: 20px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: rgba(255, 79, 79, 0.12);
-        color: #ff4d62;
-        border: 2px solid rgba(255, 79, 79, 0.6);
-      }
-
-      .wa {
-        display: inline-flex;
-        align-items: center;
-        gap: 14px;
-        padding: 12px 22px;
-        border-radius: 18px 18px 18px 18px;
-        background: linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-        border: 2px solid rgba(255, 80, 80, 0.75);
-        box-shadow: 0 0 18px rgba(255, 0, 28, 0.18);
-      }
-
-      .wa .bubble {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        background: linear-gradient(180deg, #47d66d, #1fa343);
-        position: relative;
-      }
-
-      .wa .bubble::before {
-        content: "";
-        position: absolute;
-        inset: 8px 8px 8px 8px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.9);
-        clip-path: polygon(0 0, 100% 0, 100% 76%, 55% 76%, 47% 100%, 38% 76%, 0 76%);
-      }
-
-      .wa span {
-        display: block;
-        line-height: 1.1;
-        font-weight: 800;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      @media (max-width: 980px) {
-        .service-strip {
-          grid-template-columns: repeat(3, minmax(140px, 1fr));
-        }
-      }
-
-      @media (max-width: 680px) {
-        .page {
-          padding-top: 8px;
-        }
-
-        .orbit {
-          width: min(720px, 90vw);
-        }
-
-        .brand h1 {
-          letter-spacing: -0.06em;
-        }
-
-        .brand .sub {
-          letter-spacing: 0.04em;
-        }
-
-        .service-strip {
-          grid-template-columns: repeat(2, minmax(130px, 1fr));
-        }
-
-        .support-bar {
-          justify-content: center;
-        }
-      }
+      @media (max-width:980px){.split-grid{grid-template-columns:1fr}.products{grid-template-columns:repeat(2, minmax(0,1fr))}}
+      @media (max-width:700px){.navlinks{display:none}.hero-brand{padding:32px 16px 22px; border-radius:24px}.logo-circle{width:min(82vw, 420px)}.products{grid-template-columns:1fr}.shop-header{align-items:flex-start}}
     </style>
   </head>
   <body>
-    <div class="page">
-      <div class="noise"></div>
-
-      <section class="hero">
-        <div class="orbit" aria-label="logo Active Unlock">
-          <div class="ring"></div>
-          <div class="ring-cut"></div>
-          <div class="scan"></div>
-          <div class="glow"></div>
-          <div class="lock"></div>
+    <header class="top">
+      <nav class="nav">
+        <a href="#" class="brand" aria-label="Active Unlock">
+          <span class="brand-mark"></span>
+          <span>Active <b>Unlock</b></span>
+        </a>
+        <div class="navlinks">
+          <button class="menu-trigger" type="button" onclick="document.getElementById('tienda').scrollIntoView({behavior:'smooth'})">🛒 Tienda</button>
+          <button class="menu-trigger" type="button" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">🛠️ Servicios</button>
+          <button class="menu-trigger" type="button" onclick="window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20informaci%C3%B3n.', '_blank')">💬 WhatsApp</button>
         </div>
+        <button class="cart" type="button" onclick="openCart()">🛒 Pedido (<span id="cartCount">0</span>)</button>
+      </nav>
+    </header>
 
-        <div class="brand">
-          <h1>Active Unlock</h1>
-          <div class="sub">Servicio técnico de celulares</div>
-        </div>
-
-        <div class="service-strip">
-          <div class="service">
-            <div class="icon locked"></div>
-            <strong>Libe<br>ración</strong>
-          </div>
-          <div class="service">
-            <div class="icon tool"></div>
-            <strong>Reparación<br>de celulares</strong>
-          </div>
-          <div class="service">
-            <div class="icon chip"></div>
-            <strong>Configuración<br>eSIM / RSIM</strong>
-          </div>
-          <div class="service">
-            <div class="icon phone"></div>
-            <strong>Software<br>y reprog.</strong>
-          </div>
-          <div class="service">
-            <div class="icon cart"></div>
-            <strong>Venta de<br>pantallas</strong>
-          </div>
-          <div class="service">
-            <div class="icon cloud"></div>
-            <strong>Productos<br>y accesorios</strong>
-          </div>
-        </div>
-
-        <div class="brand-row" aria-label="Marcas compatibles">
-          <span class="brand-tag logo">SAMSUNG</span>
-          <span class="brand-tag">G</span>
-          <span class="brand-tag">MOTOROLA</span>
-          <span class="brand-tag">OPPO</span>
-          <span class="brand-tag">REALME</span>
-          <span class="brand-tag">ONEPLUS</span>
-          <span class="brand-tag">HONOR</span>
-          <span class="brand-tag">TECNO</span>
-          <span class="brand-tag">INFINIX</span>
-          <span class="brand-tag">y más...</span>
-        </div>
-
-        <div class="support-bar">
-          <div class="mini-pill"><span class="check">✓</span> Garantía</div>
-          <div class="mini-pill"><span class="check">⚡</span> Servicio rápido</div>
-          <div class="mini-pill"><span class="check">🛠</span> Soporte técnico</div>
-          <div class="mini-pill"><span class="check">◌</span> Servicios online</div>
-          <div class="mini-pill"><span class="check">📦</span> Envíos disponibles</div>
-
-          <div class="wa" aria-label="WhatsApp">
-            <div class="bubble"></div>
-            <span>Contáctanos por<br>WhatsApp</span>
+    <main>
+      <section class="hero-shell">
+        <div class="hero-brand">
+          <div class="logo-stack">
+            <div class="logo-circle">
+              <div class="logo-ring"></div>
+              <div class="logo-cut"></div>
+              <div class="logo-spark"></div>
+              <div class="logo-spark two"></div>
+            </div>
+            <div class="brand-title"><span class="white">Active</span><span class="red">Unlock</span></div>
+            <div class="subtitle">Servicio técnico de celulares</div>
+            <div class="stroke-line"></div>
+            <div class="services-mini">
+              <div class="service-mini"><div class="icon">🔓</div><div class="label">Liberación</div></div>
+              <div class="service-mini"><div class="icon">🛠️</div><div class="label">Reparación</div></div>
+              <div class="service-mini"><div class="icon">📶</div><div class="label">eSIM / RSIM</div></div>
+              <div class="service-mini"><div class="icon">🧰</div><div class="label">Software</div></div>
+              <div class="service-mini"><div class="icon">🛒</div><div class="label">Pantallas</div></div>
+            </div>
           </div>
         </div>
       </section>
+
+      <section class="section-split" id="servicios">
+        <div class="split-grid">
+          <article class="panel panel-client" role="button" onclick="document.getElementById('tienda').scrollIntoView({behavior:'smooth'})">
+            <div class="panel-inner">
+              <div>
+                <div class="panel-badge">👥 Clientes</div>
+                <h2 class="panel-title">Compra fácil</h2>
+                <p class="panel-copy">Pantallas, accesorios y soluciones rápidas para tu equipo. Consulta precios y compra con asesoría directa.</p>
+                <ul class="panel-list">
+                  <li>Pantallas con o sin montaje</li>
+                  <li>Accesorios y repuestos</li>
+                  <li>Soporte técnico directo</li>
+                  <li>Pedidos y seguimiento por WhatsApp</li>
+                </ul>
+              </div>
+              <div class="panel-footer">
+                <button class="primary-btn" type="button" onclick="event.stopPropagation();document.getElementById('tienda').scrollIntoView({behavior:'smooth'})">Ir a la tienda</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel panel-tech" role="button" onclick="window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica.', '_blank')">
+            <div class="panel-inner">
+              <div>
+                <div class="panel-badge">⚙️ Técnicos</div>
+                <h2 class="panel-title">Soluciones pro</h2>
+                <p class="panel-copy">Herramientas, soporte y asistencia técnica para reparación, programación, liberación y trabajos especializados.</p>
+                <ul class="panel-list">
+                  <li>Reparación y diagnóstico</li>
+                  <li>Software y reprogramación</li>
+                  <li>eSIM / RSIM y liberación</li>
+                  <li>Inventario y asesoría profesional</li>
+                </ul>
+              </div>
+              <div class="panel-footer">
+                <button class="ghost-btn" type="button" onclick="event.stopPropagation(); window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica.', '_blank')">Acceso técnico</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="shop-wrap" id="tienda">
+        <div class="shop-box">
+          <div class="shop-header">
+            <h3>🛒 Tienda Active Unlock</h3>
+            <span class="live">En línea</span>
+          </div>
+
+          <div class="shopbar">
+            <input id="search" class="search" placeholder="Buscar modelo..." oninput="renderProducts()">
+            <select id="brandFilter" class="select" onchange="renderProducts()">
+              <option value="">Todas las marcas</option>
+            </select>
+            <select id="availability" class="select" onchange="renderProducts()">
+              <option value="">Todo</option>
+              <option value="yes">Disponibles</option>
+              <option value="no">Agotadas</option>
+            </select>
+          </div>
+
+          <div class="products" id="products"></div>
+        </div>
+      </div>
+
+      <div class="brand-wall">
+        <div class="brand-wrap">
+          <div class="brand-row">
+            <div class="brand-chip"><span class="mark">S</span>Samsung</div>
+            <div class="brand-chip"><span class="mark">A</span>Apple</div>
+            <div class="brand-chip"><span class="mark">X</span>Xiaomi</div>
+            <div class="brand-chip"><span class="mark">H</span>Huawei</div>
+            <div class="brand-chip"><span class="mark">M</span>Motorola</div>
+            <div class="brand-chip"><span class="mark">G</span>Google</div>
+            <div class="brand-chip"><span class="mark">1+</span>OnePlus</div>
+            <div class="brand-chip"><span class="mark">O</span>OPPO</div>
+            <div class="brand-chip"><span class="mark">R</span>realme</div>
+            <div class="brand-chip"><span class="mark">T</span>Tecno</div>
+            <div class="brand-chip"><span class="mark">N</span>Nokia</div>
+            <div class="brand-chip"><span class="mark">Z</span>ZTE</div>
+            <div class="brand-chip"><span class="mark">S</span>Samsung</div>
+            <div class="brand-chip"><span class="mark">A</span>Apple</div>
+            <div class="brand-chip"><span class="mark">X</span>Xiaomi</div>
+            <div class="brand-chip"><span class="mark">H</span>Huawei</div>
+            <div class="brand-chip"><span class="mark">M</span>Motorola</div>
+            <div class="brand-chip"><span class="mark">G</span>Google</div>
+            <div class="brand-chip"><span class="mark">1+</span>OnePlus</div>
+            <div class="brand-chip"><span class="mark">O</span>OPPO</div>
+          </div>
+          <div class="brand-row reverse" style="margin-top:14px">
+            <div class="brand-chip"><span class="mark">U</span>UnlockTool</div>
+            <div class="brand-chip"><span class="mark">C</span>ChimeraTool</div>
+            <div class="brand-chip"><span class="mark">E</span>EFT Pro</div>
+            <div class="brand-chip"><span class="mark">H</span>Hydra Tool</div>
+            <div class="brand-chip"><span class="mark">M</span>UMT</div>
+            <div class="brand-chip"><span class="mark">O</span>Octoplus</div>
+            <div class="brand-chip"><span class="mark">Z</span>Z3X</div>
+            <div class="brand-chip"><span class="mark">P</span>Pandora</div>
+            <div class="brand-chip"><span class="mark">3</span>3uTools</div>
+            <div class="brand-chip"><span class="mark">i</span>iMazing</div>
+            <div class="brand-chip"><span class="mark">e</span>eSIM</div>
+            <div class="brand-chip"><span class="mark">U</span>UnlockTool</div>
+            <div class="brand-chip"><span class="mark">C</span>ChimeraTool</div>
+            <div class="brand-chip"><span class="mark">E</span>EFT Pro</div>
+            <div class="brand-chip"><span class="mark">H</span>Hydra Tool</div>
+            <div class="brand-chip"><span class="mark">M</span>UMT</div>
+            <div class="brand-chip"><span class="mark">O</span>Octoplus</div>
+            <div class="brand-chip"><span class="mark">Z</span>Z3X</div>
+            <div class="brand-chip"><span class="mark">P</span>Pandora</div>
+            <div class="brand-chip"><span class="mark">3</span>3uTools</div>
+          </div>
+        </div>
+        <div class="brand-sub">Marcas, plataformas y herramientas</div>
+      </div>
+    </main>
+
+    <div class="modal" id="modal">
+      <div class="modalbox">
+        <button class="close" type="button" onclick="closeCart()">×</button>
+        <h3>Tu pedido</h3>
+        <div id="cartRows"></div>
+        <div class="total" id="total"></div>
+        <button class="cart-cta" type="button" onclick="sendWhatsApp()">Enviar pedido por WhatsApp</button>
+      </div>
     </div>
+
+    <a class="wa" href="https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener">💬 WhatsApp</a>
+
+    <footer>
+      Active Unlock · Servicio Técnico de Celulares · Libera · Repara · Conecta
+    </footer>
+
+    <script>
+      const MOUNT = 4000;
+      const WA = "5355323969";
+      const products = [
+        {brand:"Samsung", model:"A01 Core", usd:12.59, cup:8500, qty:0},
+        {brand:"Samsung", model:"A02S / A03S / A04E / F04", usd:12.59, cup:8500, qty:3},
+        {brand:"Samsung", model:"A03 Core (A032F / A032M)", usd:14.81, cup:10000, qty:8},
+        {brand:"Samsung", model:"A04", usd:12.59, cup:8500, qty:28},
+        {brand:"Samsung", model:"A05 / F05", usd:16.3, cup:11000, qty:3},
+        {brand:"Samsung", model:"A10", usd:13.33, cup:9000, qty:16},
+        {brand:"Samsung", model:"A11 (A115) / M11", usd:12.59, cup:8500, qty:7},
+        {brand:"Samsung", model:"A12 / F12 / M12", usd:13.33, cup:9000, qty:44},
+        {brand:"Samsung", model:"A13 / F13 / M13", usd:16.3, cup:11000, qty:1},
+        {brand:"Samsung", model:"A14 4G", usd:12.59, cup:8500, qty:11},
+        {brand:"Samsung", model:"A15 Incell", usd:20, cup:13500, qty:7},
+        {brand:"Samsung", model:"A16", usd:23.7, cup:16000, qty:3},
+        {brand:"Samsung", model:"J2 Core (J260)", usd:13.33, cup:9000, qty:3},
+        {brand:"Samsung", model:"J3 / J5", usd:11.85, cup:8000, qty:1},
+        {brand:"Samsung", model:"J4", usd:12.59, cup:8500, qty:7},
+        {brand:"Samsung", model:"J7 Prime / G610M", usd:11.85, cup:8000, qty:0},
+        {brand:"Samsung", model:"J7 (J710)", usd:11.85, cup:8000, qty:8},
+        {brand:"Xiaomi", model:"Redmi A1 / A2 / Poco C51", usd:16.3, cup:11000, qty:31},
+        {brand:"Xiaomi", model:"Redmi A3 / A3X / Poco C61", usd:14.81, cup:10000, qty:17},
+        {brand:"Xiaomi", model:"Redmi 6 / 6A", usd:12.59, cup:8500, qty:12},
+        {brand:"Xiaomi", model:"Redmi 9A / 9C / 10A", usd:14.81, cup:10000, qty:73},
+        {brand:"Xiaomi", model:"Redmi 9T / Poco M3", usd:12.59, cup:8500, qty:19},
+        {brand:"Xiaomi", model:"Redmi 10C / Poco C40", usd:12.59, cup:8500, qty:10},
+        {brand:"Xiaomi", model:"Redmi 12", usd:12.59, cup:8500, qty:11},
+        {brand:"Xiaomi", model:"Mi A2 / 6X", usd:15.56, cup:10500, qty:8},
+        {brand:"Xiaomi", model:"Mi A3", usd:16.3, cup:11000, qty:9},
+        {brand:"Xiaomi", model:"Note 11 5G", usd:13.33, cup:9000, qty:7},
+        {brand:"Xiaomi", model:"Note 12 (Oled)", usd:37.04, cup:25000, qty:10},
+        {brand:"Huawei", model:"Honor 8X", usd:13.33, cup:9000, qty:1},
+        {brand:"Huawei", model:"Mate 20 Lite", usd:13.33, cup:9000, qty:7},
+        {brand:"Huawei", model:"P20 Lite", usd:12.59, cup:8500, qty:18},
+        {brand:"Huawei", model:"P30 Lite", usd:16.3, cup:11000, qty:0},
+        {brand:"Huawei", model:"Honor X8 4G", usd:13.33, cup:9000, qty:4},
+        {brand:"Huawei", model:"Y5 / 2018", usd:12.59, cup:8500, qty:5},
+        {brand:"Huawei", model:"Y5 / 2019", usd:12.59, cup:8500, qty:12},
+        {brand:"Huawei", model:"Y6 / 2018", usd:12.59, cup:8500, qty:5},
+        {brand:"Huawei", model:"Y7 / 2019", usd:12.59, cup:8500, qty:5},
+        {brand:"Motorola", model:"E13 / G23", usd:18.52, cup:12500, qty:19},
+        {brand:"Motorola", model:"E15", usd:18.52, cup:12500, qty:2},
+        {brand:"Motorola", model:"E20", usd:14.07, cup:9500, qty:7},
+        {brand:"Motorola", model:"E22 / E22i", usd:16.3, cup:11000, qty:5},
+        {brand:"Motorola", model:"G6 Play / E5", usd:12.59, cup:8500, qty:11},
+        {brand:"Motorola", model:"G7 Play", usd:12.59, cup:8500, qty:3},
+        {brand:"Motorola", model:"G9 Play", usd:12.59, cup:8500, qty:5},
+        {brand:"Motorola", model:"G Play 2023", usd:17.78, cup:12000, qty:13},
+        {brand:"Motorola", model:"G Pure", usd:17.04, cup:11500, qty:16},
+        {brand:"Motorola", model:"G Power 2021", usd:17.78, cup:12000, qty:14},
+        {brand:"Motorola", model:"G Stylus 2023", usd:17.78, cup:12000, qty:3},
+        {brand:"Alcatel", model:"5002", usd:14.81, cup:10000, qty:8},
+        {brand:"Alcatel", model:"5024", usd:16.3, cup:11000, qty:14},
+        {brand:"Alcatel", model:"5028 / 5029", usd:16.3, cup:11000, qty:30},
+        {brand:"TeCno", model:"Spark Go 2022", usd:16.3, cup:11000, qty:7},
+        {brand:"TeCno", model:"Spark Go 2023 / Smart 8", usd:16.3, cup:11000, qty:69},
+        {brand:"TeCno", model:"Go 2024 / Spark 20", usd:16.3, cup:11000, qty:24},
+        {brand:"Apple", model:"iPhone XR", usd:20.74, cup:14000, qty:7},
+        {brand:"Apple", model:"iPhone 11", usd:20.74, cup:14000, qty:2},
+        {brand:"Apple", model:"iPhone 12 Pro Max Oled", usd:62.22, cup:42000, qty:1},
+        {brand:"ZTE", model:"A51 / A71", usd:17.04, cup:11500, qty:4},
+        {brand:"OnePlus", model:"OPPO A53 / N100", usd:12.59, cup:8500, qty:8},
+        {brand:"OnePlus", model:"N200", usd:14.07, cup:9500, qty:0}
+      ];
+
+      let cart = [];
+      const brands = [...new Set(products.map(p => p.brand))].sort();
+      const brandFilter = document.getElementById("brandFilter");
+      brandFilter.innerHTML = '<option value="">Todas las marcas</option>' + brands.map(b => `<option value="${escapeHtml(b)}">${escapeHtml(b)}</option>`).join("");
+
+      function escapeHtml(str){
+        return String(str).replace(/[&<>\"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
+      }
+      function money(n){return new Intl.NumberFormat("es-CU").format(Math.round(n)) + " CUP";}
+
+      function renderProducts(){
+        const q = document.getElementById("search").value.toLowerCase().trim();
+        const selectedBrand = brandFilter.value;
+        const selectedAvailability = document.getElementById("availability").value;
+        const list = products.filter(p => {
+          const matchQuery = !q || p.model.toLowerCase().includes(q);
+          const matchBrand = !selectedBrand || p.brand === selectedBrand;
+          const matchAvailability = !selectedAvailability || (selectedAvailability === "yes" ? p.qty > 0 : p.qty <= 0);
+          return matchQuery && matchBrand && matchAvailability;
+        });
+
+        const productsNode = document.getElementById("products");
+        productsNode.innerHTML = list.length ? list.map(p => {
+          const index = products.indexOf(p);
+          const ok = p.qty > 0;
+          return `
+            <article class="card">
+              <span class="tag">${escapeHtml(p.brand)}</span>
+              <h3>${escapeHtml(p.model)}</h3>
+              <div class="price">${money(p.cup)}</div>
+              <div class="usd">≈ US$${p.usd.toFixed(2)} · Pantalla</div>
+              <div class="stock ${ok ? 'ok' : 'no'}">${ok ? 'Disponible: ' + p.qty : 'Agotada'}</div>
+              <button ${ok ? '' : 'disabled'} type="button" onclick="addToCart(${index}, false)">Pantalla sola</button>
+              <button ${ok ? '' : 'disabled'} type="button" onclick="addToCart(${index}, true)">Pantalla + montaje</button>
+            </article>
+          `;
+        }).join("") : `<div class="card" style="grid-column:1 / -1;">No encontramos ese modelo.</div>`;
+      }
+
+      function addToCart(index, withMount){
+        const product = products[index];
+        if (!product || product.qty <= 0) return;
+        cart.push({ product, withMount });
+        document.getElementById("cartCount").textContent = cart.length;
+        openCart();
+      }
+
+      function openCart(){
+        drawCart();
+        document.getElementById("modal").classList.add("open");
+      }
+
+      function closeCart(){
+        document.getElementById("modal").classList.remove("open");
+      }
+
+      function drawCart(){
+        const rows = document.getElementById("cartRows");
+        const totalEl = document.getElementById("total");
+        if (!cart.length){
+          rows.innerHTML = "<p style='color:#aaa'>Tu pedido está vacío.</p>";
+          totalEl.textContent = "";
+          return;
+        }
+
+        let total = 0;
+        rows.innerHTML = cart.map((item, idx) => {
+          const amount = item.product.cup + (item.withMount ? MOUNT : 0);
+          total += amount;
+          return `
+            <div class="cartrow">
+              <span>
+                ${escapeHtml(item.product.brand)} ${escapeHtml(item.product.model)}<br>
+                <small>${item.withMount ? "Con montaje" : "Pantalla sola"}</small>
+              </span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <b>${money(amount)}</b>
+                <button type="button" onclick="removeFromCart(${idx})">×</button>
+              </div>
+            </div>
+          `;
+        }).join("");
+        totalEl.textContent = "Total: " + money(total);
+      }
+
+      function removeFromCart(index){
+        cart.splice(index, 1);
+        drawCart();
+        document.getElementById("cartCount").textContent = cart.length;
+      }
+
+      function sendWhatsApp(){
+        if (!cart.length) return;
+        const lines = cart.map(item => {
+          const amount = item.product.cup + (item.withMount ? MOUNT : 0);
+          return `• ${item.product.brand} ${item.product.model} — ${item.withMount ? "con montaje" : "pantalla sola"} — ${money(amount)}`;
+        });
+        const total = cart.reduce((sum, item) => sum + item.product.cup + (item.withMount ? MOUNT : 0), 0);
+        const text = encodeURIComponent("Hola Active Unlock, quiero hacer este pedido:\n" + lines.join("\n") + "\n\nTotal: " + money(total));
+        window.open("https://wa.me/" + WA + "?text=" + text, "_blank");
+      }
+
+      renderProducts();
+    </script>
   </body>
 </html>
