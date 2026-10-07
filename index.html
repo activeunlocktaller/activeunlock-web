@@ -1,555 +1,658 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Active Unlock | Servicio Técnico de Celulares</title>
-    <meta name="description" content="Active Unlock: servicio técnico de celulares, liberación, reparación, software, pantallas y accesorios.">
-    <style>
-      :root{
-        --bg:#040404;
-        --bg2:#0a0a0a;
-        --panel:#121212;
-        --panel2:#181818;
-        --red:#e50914;
-        --red2:#ff3241;
-        --white:#f8f8f8;
-        --muted:#adadad;
-        --line:#2b2b2b;
-        --silver:#d7d7d7;
-        --shadow:rgba(0,0,0,.6);
-        --glow:rgba(255,35,35,.7);
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Active Unlock | Servicio Técnico Premium</title>
+  <meta name="description" content="Active Unlock: reparación, liberación, pantallas, accesorios y soporte técnico para celulares.">
+  <style>
+    :root{
+      --bg:#060606;
+      --bg-2:#0c0c0d;
+      --panel:#121214;
+      --panel-2:#17171a;
+      --panel-soft:#1b1d20;
+      --red:#e50914;
+      --red-2:#ff2f45;
+      --red-3:#ff6b76;
+      --white:#f5f5f5;
+      --muted:#a9a9b0;
+      --line:#2a2a2e;
+      --success:#7fe0a4;
+      --warning:#ffcf5a;
+      --shadow:0 30px 80px rgba(0,0,0,.55);
+    }
 
-      *{box-sizing:border-box}
-      html{scroll-behavior:smooth}
-      body{
-        margin:0;
-        background:
-          radial-gradient(circle at 50% 10%, rgba(255,0,0,.12), transparent 30%),
-          linear-gradient(180deg, #030303 0%, #050505 100%);
-        color:var(--white);
-        font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        line-height:1.5;
-      }
-      a{text-decoration:none; color:inherit}
-      img{display:block; max-width:100%}
-      button,input,select{font:inherit}
-      .container{max-width:1280px; margin:0 auto; padding:0 18px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(229,9,20,.18), transparent 26%),
+        radial-gradient(circle at 80% 10%, rgba(255,70,90,.12), transparent 18%),
+        linear-gradient(180deg, #050505 0%, #09090a 100%);
+      color:var(--white);
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.5;
+    }
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    button,input,select{font:inherit}
+    .container{max-width:1200px;margin:0 auto;padding:0 18px}
 
-      .top{
-        position:sticky; top:0; z-index:100;
-        background:rgba(5,5,5,.86);
-        backdrop-filter:blur(14px);
-        border-bottom:1px solid rgba(255,255,255,.05);
-        box-shadow:0 8px 26px rgba(0,0,0,.25);
-      }
-      .nav{
-        max-width:1280px; margin:0 auto; padding:14px 18px;
-        display:flex; align-items:center; justify-content:space-between; gap:18px;
-      }
-      .brand{display:flex; align-items:center; gap:12px; font-size:24px; font-weight:900; letter-spacing:-1px; color:#fff}
-      .brand-mark{
-        width:22px; height:22px; border-radius:50%;
-        background:radial-gradient(circle at 35% 35%, #ff5a5a 0%, #e50914 32%, #8d0009 100%);
-        border:2px solid rgba(255,255,255,.8);
-        box-shadow:0 0 18px rgba(229,9,20,.9); position:relative;
-      }
-      .brand-mark:after{
-        content:""; position:absolute; inset:5px; border-radius:50%;
-        border:1px solid rgba(255,255,255,.25);
-        background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), transparent 70%);
-      }
-      .brand b{color:var(--red2)}
-      .navlinks{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
-      .menu-trigger{
-        background:transparent; color:#f1f1f1; border:1px solid transparent;
-        border-radius:10px; padding:9px 12px; cursor:pointer; font-weight:600; transition:.2s ease;
-      }
-      .menu-trigger:hover{background:rgba(255,0,0,.06); border-color:rgba(255,40,40,.35)}
+    .topbar{
+      position:sticky;top:0;z-index:100;
+      background:rgba(9,9,10,.82);backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      box-shadow:0 12px 32px rgba(0,0,0,.18);
+    }
+    .nav{
+      max-width:1200px;margin:0 auto;padding:14px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.65rem;letter-spacing:-.06em;
+    }
+    .brand-mark{
+      width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#ff6974,#e50914 35%,#8b0007 100%);
+      box-shadow:0 0 18px rgba(229,9,20,.9), inset 0 0 8px rgba(255,255,255,.2);position:relative;
+    }
+    .brand-mark::after{
+      content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(255,255,255,.4);
+    }
+    .brand b{color:var(--red-2)}
 
-      .cart{
-        border:0; background:var(--red); color:#fff; font-weight:900;
-        border-radius:11px; padding:11px 16px; cursor:pointer;
-        box-shadow:0 16px 30px rgba(229,9,20,.35);
-      }
+    .navlinks{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .navlink{
+      background:transparent;border:1px solid rgba(255,255,255,.08);border-radius:10px;
+      color:var(--white);padding:9px 12px;font-size:.88rem;font-weight:700;cursor:pointer;
+      transition:.2s ease;
+    }
+    .navlink:hover{border-color:rgba(255,80,80,.32);background:rgba(255,255,255,.03)}
+    .cart-btn{
+      background:linear-gradient(180deg,#f5202b,#d80815);color:#fff;border:0;border-radius:12px;
+      padding:11px 16px;font-weight:900;cursor:pointer;box-shadow:0 18px 28px rgba(229,9,20,.28);
+    }
 
-      .hero-shell{max-width:1280px; margin:0 auto; padding:26px 18px 0}
-      .hero-brand{
-        position:relative; overflow:hidden; border-radius:30px;
-        background:radial-gradient(circle at 50% 14%, rgba(255,0,0,.22), transparent 25%),
-          linear-gradient(180deg, rgba(10,10,10,.96), rgba(8,8,8,.96));
-        border:1.5px solid rgba(255,255,255,.06);
-        box-shadow:0 28px 70px rgba(0,0,0,.6), inset 0 0 30px rgba(255,0,0,.08);
-        padding:48px 20px 28px;
-      }
-      .hero-brand:before{
-        content:""; position:absolute; left:0; right:0; bottom:0; height:70%;
-        background:linear-gradient(180deg, rgba(255,0,0,0), rgba(255,0,0,.08)); pointer-events:none;
-      }
-      .logo-stack{position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center}
-      .logo-circle{width:min(72vw, 600px); aspect-ratio:1; position:relative; display:grid; place-items:center; filter:drop-shadow(0 0 42px rgba(255,0,0,.2))}
-      .logo-ring{
-        position:absolute; inset:0; border-radius:50%;
-        background:linear-gradient(135deg, #ffffff 0%, #dfe2e4 18%, #ffffff 26%, #b7bcc2 42%, #eeeeee 60%, #9096a0 100%);
-        transform:rotate(-12deg);
-        box-shadow:
-          0 0 0 12px rgba(255,255,255,.06),
-          0 0 50px rgba(255,0,0,.45),
-          0 0 130px rgba(255,0,0,.18),
-          inset 0 6px 14px rgba(255,255,255,.32),
-          inset 0 -6px 14px rgba(0,0,0,.28);
-      }
-      .logo-ring:before{
-        content:""; position:absolute; inset:17%; border-radius:50%;
-        background:radial-gradient(circle at 45% 40%, #ff3a45 0%, #e50914 28%, #8b0007 100%);
-        box-shadow: inset 0 2px 10px rgba(255,255,255,.18), inset -6px -6px 18px rgba(0,0,0,.35), 0 0 42px rgba(255,0,0,.82);
-      }
-      .logo-ring:after{
-        content:""; position:absolute; inset:6%; border-radius:50%;
-        border:30px solid rgba(255,255,255,.08); box-shadow:inset 0 0 12px rgba(0,0,0,.5);
-      }
-      .logo-cut{
-        position:absolute; width:76%; height:76%; border-radius:50%;
-        background:radial-gradient(circle at 50% 50%, rgba(0,0,0,.96), rgba(0,0,0,.99));
-        border:18px solid rgba(255,255,255,.09); box-shadow:inset 0 0 22px rgba(255,0,0,.08);
-      }
-      .logo-cut:before{content:""; position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 48% 48%, rgba(255,0,0,.22), transparent 62%)}
-      .logo-spark{
-        position:absolute; width:20px; height:20px; border-radius:50%; background:#ff2b2b;
-        right:14%; top:20%; box-shadow:0 0 20px rgba(255,40,40,.9), 0 0 42px rgba(255,40,40,.5);
-        animation:sparkPulse 2.8s ease-in-out infinite;
-      }
-      .logo-spark.two{left:16%; right:auto; top:28%; animation-delay:.6s}
-      @keyframes sparkPulse{0%,100%{transform:scale(1); opacity:1}50%{transform:scale(1.25); opacity:.8}}
+    .hero{padding:30px 0 14px}
+    .hero-box{
+      position:relative;overflow:hidden;border-radius:30px;
+      background:linear-gradient(135deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      min-height:620px;
+    }
+    .hero-box::before{
+      content:"";position:absolute;inset:0;background:
+        radial-gradient(circle at 50% 18%, rgba(229,9,20,.18), transparent 22%),
+        linear-gradient(120deg, transparent 0 45%, rgba(255,255,255,.02) 46%, transparent 70%);
+      pointer-events:none;
+    }
+    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:26px;padding:44px 38px 30px;align-items:center}
 
-      .brand-title{margin-top:-10px; font-size:clamp(3rem,8vw,9rem); line-height:.84; letter-spacing:-.09em; font-weight:950}
-      .brand-title .white{color:#f7f7f7; text-shadow:0 0 22px rgba(255,255,255,.12), 0 4px 12px rgba(0,0,0,.5)}
-      .brand-title .red{color:var(--red); text-shadow:0 0 28px rgba(255,0,0,.55), 0 4px 12px rgba(0,0,0,.45)}
-      .subtitle{margin-top:16px; color:#efefef; text-transform:uppercase; letter-spacing:.2em; font-size:clamp(1rem,2vw,2rem); font-weight:800}
-      .stroke-line{width:min(68vw, 680px); height:8px; margin:24px auto 18px; border-radius:999px; background:linear-gradient(90deg, transparent 0%, rgba(255,30,30,.92) 8%, rgba(255,30,30,.92) 92%, transparent 100%); box-shadow:0 0 18px rgba(255,0,0,.35)}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:7px 12px;
+      font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#f2d5d7;
+    }
+    .eyebrow::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 14px rgba(229,9,20,.75)}
 
-      .services-mini{width:min(1100px,100%); display:grid; grid-template-columns:repeat(auto-fit, minmax(130px,1fr)); gap:16px; margin-top:14px}
-      .service-mini{min-height:110px; border:2px solid rgba(255,42,42,.9); border-radius:20px; background:linear-gradient(180deg, rgba(255,38,38,.06), rgba(0,0,0,.24)); box-shadow:0 0 20px rgba(255,0,0,.08); padding:14px 10px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; transition:.25s ease}
-      .service-mini:hover{transform:translateY(-4px); box-shadow:0 0 28px rgba(255,0,0,.15), inset 0 0 0 1px rgba(255,255,255,.05)}
-      .service-mini .icon{font-size:2.2rem}
-      .service-mini .label{font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:800; line-height:1.3; color:#f2f2f2}
+    .hero-title{
+      margin:22px 0 14px;font-size:clamp(3rem,6vw,6.2rem);line-height:.9;letter-spacing:-.08em;
+      font-weight:950;
+    }
+    .hero-title .light{color:#fff}
+    .hero-title .accent{color:var(--red-2);text-shadow:0 0 30px rgba(229,9,20,.35)}
+    .hero-sub{
+      max-width:640px;color:var(--muted);font-size:1.08rem;margin:0 0 24px;
+    }
 
-      .section-split{max-width:1280px; margin:32px auto 0; padding:0 18px 18px}
-      .split-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px}
-      .panel{position:relative; overflow:hidden; border-radius:28px; min-height:470px; transition:.32s ease; cursor:pointer}
-      .panel:hover{transform:translateY(-6px)}
-      .panel-client{background:radial-gradient(circle at 50% 18%, rgba(255,33,33,.28), transparent 26%), radial-gradient(circle at 20% 80%, rgba(255,110,110,.12), transparent 18%), linear-gradient(180deg, rgba(24,24,24,.96), rgba(8,8,8,.96)); border:1px solid rgba(255,255,255,.08)}
-      .panel-client::before{content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 38%, rgba(255,0,0,.82), transparent 12%), linear-gradient(135deg, transparent 0 39%, rgba(255,255,255,.02) 39%, rgba(255,255,255,.02) 40%, transparent 40%); opacity:.9}
-      .panel-client::after{content:""; position:absolute; width:420px; height:420px; right:-90px; top:40px; border-radius:50%; background:radial-gradient(circle, rgba(255,40,40,.72), rgba(255,40,40,.2) 33%, rgba(255,40,40,0) 60%); opacity:.6; filter:blur(8px)}
-      .panel-tech{background:radial-gradient(circle at 50% 10%, rgba(255,0,0,.18), transparent 30%), linear-gradient(180deg, rgba(15,15,15,.96), rgba(6,6,6,.98)); border:1.5px solid rgba(255,42,42,.4)}
-      .panel-inner{position:relative; z-index:1; height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:30px 26px 24px; background:linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.34));}
-      .panel-badge{display:inline-block; background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(8px); border-radius:12px; padding:8px 14px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:800}
-      .panel-tech .panel-badge{background:rgba(255,48,48,.08); border-color:rgba(255,48,48,.4); color:#ffb3b8}
-      .panel-title{margin:20px 0 12px; font-size:clamp(2.2rem,4vw,4rem); line-height:.92; letter-spacing:-.09em; font-weight:960}
-      .panel-copy{color:rgba(255,255,255,.88); font-size:1.04rem; line-height:1.7; max-width:540px}
-      .panel-list{margin:22px 0 0; padding:0 0 0 20px; color:#f0f0f0; display:grid; gap:10px}
-      .panel-list li{position:relative; line-height:1.5}
-      .panel-list li:before{content:"▸"; position:absolute; left:-18px; color:var(--red2)}
-      .panel-footer{margin-top:24px; display:flex; gap:12px}
-      .primary-btn,.ghost-btn{border-radius:13px; padding:13px 20px; font-weight:900; cursor:pointer; transition:.25s ease; border:none; font-size:14px}
-      .primary-btn{background:var(--red); color:#fff; box-shadow:0 18px 36px rgba(229,9,20,.35)}
-      .primary-btn:hover{transform:translateY(-2px); filter:brightness(1.06)}
-      .ghost-btn{color:#f4f4f4; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(10px)}
-      .ghost-btn:hover{transform:translateY(-2px)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}.cta-primary,.cta-secondary{
+      border-radius:14px;padding:15px 20px;border:0;font-weight:900;cursor:pointer;transition:.2s ease;
+    }
+    .cta-primary{background:linear-gradient(180deg,#ff2d3d,#d90c17);color:#fff;box-shadow:0 18px 32px rgba(229,9,20,.28)}
+    .cta-secondary{background:rgba(255,255,255,.02);color:#fff;border:1px solid rgba(255,255,255,.1)}
+    .cta-primary:hover,.cta-secondary:hover{transform:translateY(-1px)}
 
-      .shop-wrap{max-width:1280px; margin:0 auto; padding:0 18px 30px}
-      .shop-box{background:linear-gradient(180deg, rgba(14,14,14,.88), rgba(8,8,8,.96)); border:1px solid rgba(255,255,255,.08); border-radius:26px; padding:22px 18px 20px; box-shadow:0 30px 70px rgba(0,0,0,.5)}
-      .shop-header{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:18px}
-      .shop-header h3{margin:0; font-size:clamp(2rem,3vw,3rem); letter-spacing:-.06em}
-      .shop-header .live{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,80,80,.45); background:rgba(255,48,48,.08); font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase}
-      .shop-header .live:before{content:""; width:8px; height:8px; border-radius:50%; background:#38d17b; box-shadow:0 0 10px rgba(56,209,123,.85)}
-      .shopbar{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 20px}
-      .search,.select{background:#0d0d0d; border:1px solid #2d2d2d; color:#fff; border-radius:10px; padding:12px 14px; outline:none}
-      .search{flex:1; min-width:220px}
-      .select{min-width:190px}
-      .products{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px}
-      .card{background:linear-gradient(145deg,#141414,#0a0a0a); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:16px}
-      .tag{display:inline-block; font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:#ff8a92; background:rgba(255,48,48,.08); border:1px solid rgba(255,48,48,.3); border-radius:999px; padding:5px 8px}
-      .card h3{margin:12px 0 10px; min-height:42px; line-height:1.22; font-size:16px}
-      .price{font-size:22px; font-weight:950; letter-spacing:-.05em}
-      .usd{color:#aaa; font-size:12px; margin-top:3px}
-      .stock{margin-top:10px; font-size:12px; font-weight:700}
-      .stock.ok{color:#7fe0a4}
-      .stock.no{color:#ff6c75}
-      .card button{width:100%; margin-top:12px; border:1px solid rgba(255,255,255,.18); background:#fff; color:#111; border-radius:10px; padding:10px 12px; font-weight:900; cursor:pointer}
-      .card button:disabled{background:#303030; border-color:#303030; color:#7b7b7b; cursor:not-allowed}
+    .hero-stats{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px}
+    .stat{min-width:130px;padding:14px 14px;border:1px solid rgba(255,255,255,.07);border-radius:14px;background:rgba(255,255,255,.02)}
+    .stat strong{display:block;font-size:1.45rem;letter-spacing:-.06em}
+    .stat span{color:var(--muted);font-size:.73rem;letter-spacing:.12em;text-transform:uppercase}
 
-      .brand-wall{max-width:1280px; margin:0 auto; padding:12px 18px 30px}
-      .brand-wrap{overflow:hidden; position:relative; border-top:1.5px solid rgba(255,255,255,.08); border-bottom:1.5px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,25,25,.03), rgba(0,0,0,.0)); padding:12px 0}
-      .brand-row{display:flex; width:max-content; gap:12px; animation:brandMove 28s linear infinite}
-      .brand-row.reverse{animation-direction:reverse; animation-duration:34s}
-      @keyframes brandMove{from{transform:translateX(0)} to{transform:translateX(-50%)}}
-      .brand-chip{min-width:155px; height:60px; border-radius:16px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(145deg,#161616,#0a0a0a); display:flex; align-items:center; justify-content:center; gap:10px; color:#f7f7f7; font-weight:900; letter-spacing:-.02em; transition:.22s ease}
-      .brand-chip:hover{transform:translateY(-3px); border-color:rgba(255,48,48,.5); box-shadow:0 16px 34px rgba(0,0,0,.35), 0 0 18px rgba(255,0,0,.12)}
-      .brand-chip .mark{width:30px; height:30px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); font-size:12px; color:#ffb4b9}
-      .brand-sub{text-align:center; margin-top:14px; color:#787878; letter-spacing:.18em; text-transform:uppercase; font-size:12px; font-weight:800}
+    .hero-visual{
+      position:relative;display:flex;align-items:center;justify-content:center;
+      min-height:480px;padding:12px;
+    }
+    .device-card{
+      position:relative;width:min(430px,100%);aspect-ratio:0.74;
+      border-radius:36px;padding:18px;border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg, rgba(17,17,19,.96), rgba(8,8,9,.98));
+      box-shadow:0 30px 60px rgba(0,0,0,.5);
+      overflow:hidden;
+    }
+    .device-card::before{
+      content:"";position:absolute;inset:13px;border-radius:28px;border:1px solid rgba(255,255,255,.06);
+      background:radial-gradient(circle at 50% 15%, rgba(229,9,20,.18), transparent 26%);
+    }
+    .device-screen{
+      position:absolute;inset:24px 24px 28px;border-radius:22px;
+      background:linear-gradient(160deg,#0d0d0f,#15171a 35%,#0d0d0f 100%);
+      border:1px solid rgba(255,255,255,.08);overflow:hidden;
+    }
+    .screen-top{padding:16px 16px 0;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#d0d0d6}
+    .signal{display:flex;gap:5px;align-items:flex-end;height:16px}
+    .signal span{display:block;width:4px;border-radius:999px;background:#9ef0b4;box-shadow:0 0 10px rgba(126,240,168,.5)}
+    .signal span:nth-child(1){height:6px}.signal span:nth-child(2){height:10px}.signal span:nth-child(3){height:14px}
+    .screen-content{padding:20px 18px 18px;display:grid;gap:12px}
+    .mini-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:15px;
+    }
+    .mini-card strong{display:block;font-size:1.1rem;letter-spacing:-.04em}
+    .mini-card span{color:var(--muted);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .chip{padding:8px 10px;border-radius:999px;font-size:.7rem;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:#f5dadd}
+    .device-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .device-item{padding:14px 12px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+    .device-item strong{display:block;font-size:1.1rem}
+    .device-item small{display:block;color:var(--muted);margin-top:4px}
 
-      .modal{position:fixed; inset:0; z-index:130; background:rgba(0,0,0,.76); backdrop-filter:blur(8px); display:none; align-items:center; justify-content:center; padding:18px}
-      .modal.open{display:flex}
-      .modalbox{width:min(590px,100%); border-radius:20px; background:#0a0a0a; border:1px solid rgba(255,255,255,.12); box-shadow:0 26px 80px rgba(0,0,0,.75); padding:22px 20px}
-      .close{float:right; background:none; border:0; color:#fff; font-size:26px; cursor:pointer}
-      .modalbox h3{margin:8px 0 18px; font-size:28px; letter-spacing:-.06em}
-      .cartrow{display:flex; justify-content:space-between; align-items:center; gap:12px; border-bottom:1px solid rgba(255,255,255,.08); padding:10px 0}
-      .cartrow span{font-size:14px}
-      .cartrow small{display:block; color:#aaa; margin-top:4px}
-      .cartrow button{background:none; border:0; color:#ff7d85; font-size:20px; cursor:pointer}
-      .total{margin-top:18px; text-align:right; font-size:20px; font-weight:900}
-      .cart-cta{width:100%; margin-top:18px; border:0; border-radius:12px; background:var(--red); color:#fff; padding:12px 14px; font-weight:900; cursor:pointer}
+    .section{padding:22px 0 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:22px}
+    .section-head h2{margin:0;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.08em}
+    .section-head p{margin:6px 0 0;color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:#f3d9dc;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 
-      .wa{position:fixed; right:20px; bottom:20px; z-index:90; background:#25d366; color:#fff; padding:15px 18px; border-radius:999px; font-weight:950; box-shadow:0 18px 30px rgba(0,0,0,.4)}
-      footer{max-width:1280px; margin:0 auto; padding:24px 18px 40px; color:#8a8a8a; text-align:center; border-top:1px solid rgba(255,255,255,.04)}
+    .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .service-card{
+      position:relative;padding:22px 18px;border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;background:linear-gradient(180deg, rgba(18,18,20,.96), rgba(11,11,12,.96));
+      box-shadow:0 16px 36px rgba(0,0,0,.18);transition:.22s ease;
+    }
+    .service-card:hover{transform:translateY(-4px);border-color:rgba(255,90,90,.32);box-shadow:0 20px 38px rgba(229,9,20,.12)}
+    .service-icon{font-size:2rem;margin-bottom:10px}
+    .service-card h3{margin:0 0 8px;font-size:1.2rem;letter-spacing:-.04em}
+    .service-card p{margin:0;color:var(--muted);font-size:.95rem}
 
-      @media (max-width:980px){.split-grid{grid-template-columns:1fr}.products{grid-template-columns:repeat(2, minmax(0,1fr))}}
-      @media (max-width:700px){.navlinks{display:none}.hero-brand{padding:32px 16px 22px; border-radius:24px}.logo-circle{width:min(82vw, 420px)}.products{grid-template-columns:1fr}.shop-header{ display:flex; justify-content:space-between; } }
-    </style>
-  </head>
-  <body>
-    <header class="top">
-      <nav class="nav">
-        <a href="#" class="brand" aria-label="Active Unlock">
-          <span class="brand-mark"></span>
-          <span>Active <b>Unlock</b></span>
-        </a>
-        <div class="navlinks">
-          <button class="menu-trigger" type="button" onclick="document.getElementById('tienda').scrollIntoView({behavior:'smooth'})">🛒 Tienda</button>
-          <button class="menu-trigger" type="button" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">🛠️ Servicios</button>
-          <button class="menu-trigger" type="button" onclick="window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20informaci%C3%B3n.', '_blank')">💬 WhatsApp</button>
-        </div>
-        <button class="cart" type="button" onclick="openCart()">🛒 Pedido (<span id="cartCount">0</span>)</button>
-      </nav>
-    </header>
+    .promo-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:22px}
+    .promo-card{
+      position:relative;padding:24px;border-radius:24px;border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(135deg, rgba(229,9,20,.08), rgba(255,255,255,.02));overflow:hidden;
+    }
+    .promo-card::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.025),transparent 40%,rgba(255,0,0,.1));}
+    .promo-card > *{position:relative;z-index:1}
+    .promo-card h3{margin:0 0 10px;font-size:clamp(1.8rem,3vw,3rem);letter-spacing:-.08em}
+    .promo-card p{margin:0 0 18px;color:var(--muted)}
+    .promo-box{display:flex;flex-wrap:wrap;gap:10px}
+    .promo-tag{padding:8px 10px;border:1px solid rgba(255,255,255,.08);border-radius:999px;background:rgba(255,255,255,.02);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:#f2dfe1}
 
-    <main>
-      <section class="hero-shell">
-        <div class="hero-brand">
-          <div class="logo-stack">
-            <div class="logo-circle">
-              <div class="logo-ring"></div>
-              <div class="logo-cut"></div>
-              <div class="logo-spark"></div>
-              <div class="logo-spark two"></div>
+    .shop-box{margin-top:28px;padding:24px 20px 18px;border:1px solid rgba(255,255,255,.08);border-radius:28px;background:linear-gradient(180deg, rgba(16,16,18,.98), rgba(10,10,11,.96));box-shadow:var(--shadow)}
+    .shop-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 20px}
+    .shop-input,.shop-select{background:#0b0b0c;border:1px solid rgba(255,255,255,.08);color:var(--white);border-radius:12px;padding:12px 14px;outline:none;min-height:46px}
+    .shop-input{flex:1;min-width:220px}
+    .shop-select{min-width:180px}
+    .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .product-card{
+      background:linear-gradient(180deg, rgba(20,20,22,.98), rgba(12,12,13,.98));
+      border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px;transition:.2s ease;
+    }
+    .product-card:hover{transform:translateY(-4px);border-color:rgba(255,80,80,.25)}
+    .product-tag{display:inline-block;padding:5px 8px;border-radius:999px;border:1px solid rgba(255,120,120,.3);background:rgba(255,80,80,.07);color:#ffb7be;font-size:.7rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .product-card h3{margin:12px 0 10px;min-height:44px;font-size:1.05rem;line-height:1.3;letter-spacing:-.03em}
+    .price{font-size:1.7rem;font-weight:950;letter-spacing:-.06em}
+    .price-sub{color:var(--muted);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+    .stock{margin-top:10px;font-size:.8rem;font-weight:800}
+    .stock.ok{color:var(--success)}.stock.no{color:#ff7680}
+    .product-card button{
+      width:100%;margin-top:12px;padding:11px 12px;border-radius:12px;border:0;
+      background:#fff;color:#111;font-weight:900;cursor:pointer;
+    }
+    .product-card button.secondary{background:rgba(255,255,255,.04);color:#fff;border:1px solid rgba(255,255,255,.08)}
+    .product-card button:disabled{background:#2d2d2f;color:#7e7e85;border:0;cursor:not-allowed}
+
+    .brand-wall{padding:36px 0 0}
+    .brand-wrap{overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:10px 0;background:rgba(255,255,255,.015)}
+    .brand-row{display:flex;gap:12px;width:max-content;animation:marquee 32s linear infinite}
+    .brand-row.reverse{animation-direction:reverse;animation-duration:38s}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .brand-chip{display:flex;align-items:center;justify-content:center;gap:8px;min-width:145px;height:54px;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#17171a,#101012);font-size:.8rem;font-weight:900;letter-spacing:-.02em}
+    .brand-chip .mark{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#ffb0b7}
+    .brand-note{text-align:center;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;font-weight:800;padding-top:14px}
+
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.74);z-index:150}
+    .modal.open{display:flex}
+    .modal-box{width:min(560px,100%);border-radius:22px;background:linear-gradient(180deg,#101113,#0b0b0d);border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);padding:20px 18px}
+    .close{float:right;background:none;border:0;color:#fff;font-size:28px;cursor:pointer}
+    .modal-box h3{margin:6px 0 18px;font-size:2rem;letter-spacing:-.06em}
+    .cart-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .cart-item span{font-size:.96rem}
+    .cart-item small{display:block;color:var(--muted);margin-top:4px}
+    .cart-item button{background:none;border:0;color:#ff7a85;font-size:1.5rem;cursor:pointer}
+    .cart-total{margin-top:18px;text-align:right;font-size:1.2rem;font-weight:900}
+    .send-cart{width:100%;margin-top:18px;border:0;border-radius:12px;padding:12px 14px;background:linear-gradient(180deg,#ff293d,#d90d18);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 18px 28px rgba(229,9,20,.26)}
+
+    .wa-float{position:fixed;right:18px;bottom:18px;z-index:110;background:linear-gradient(180deg,#28d366,#1cb85c);color:#fff;border-radius:999px;padding:15px 18px;font-weight:900;box-shadow:0 18px 34px rgba(0,0,0,.32)}
+    footer{padding:36px 18px 50px;color:#83838a;text-align:center}
+
+    @media (max-width:980px){
+      .hero-inner{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .products{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .promo-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:700px){
+      .navlinks{display:none}
+      .hero-box{min-height:auto}
+      .hero-inner{padding:26px 18px 22px}
+      .hero-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+      .services-grid,.products{grid-template-columns:1fr}
+      .shop-toolbar{display:grid;grid-template-columns:1fr}
+      .shop-select,.shop-input{width:100%}
+      .brand-chip{min-width:125px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand" aria-label="Active Unlock logo">
+        <span class="brand-mark"></span>
+        <span>Active <b>Unlock</b></span>
+      </div>
+      <div class="navlinks">
+        <button class="navlink" type="button" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Servicios</button>
+        <button class="navlink" type="button" onclick="document.getElementById('tienda').scrollIntoView({behavior:'smooth'})">Tienda</button>
+        <button class="navlink" type="button" onclick="window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20informaci%C3%B3n.', '_blank')">WhatsApp</button>
+      </div>
+      <button class="cart-btn" type="button" onclick="openCart()">Pedido (<span id="cartCount">0</span>)</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-box">
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow">Servicio técnico premium</div>
+            <h1 class="hero-title"><span class="light">Active</span> <span class="accent">Unlock</span></h1>
+            <p class="hero-sub">Reparación, liberación, pantallas, software y accesorios con atención profesional, rapidez y soporte técnico directo.</p>
+            <div class="hero-actions">
+              <button class="cta-primary" type="button" onclick="document.getElementById('tienda').scrollIntoView({behavior:'smooth'})">Ver catálogo</button>
+              <button class="cta-secondary" type="button" onclick="window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20asesor%C3%ADa.', '_blank')">Solicitar asesoría</button>
             </div>
-            <div class="brand-title"><span class="white">Active</span><span class="red">Unlock</span></div>
-            <div class="subtitle">Servicio técnico de celulares</div>
-            <div class="stroke-line"></div>
-            <div class="services-mini">
-              <div class="service-mini"><div class="icon">🔓</div><div class="label">Liberación</div></div>
-              <div class="service-mini"><div class="icon">🛠️</div><div class="label">Reparación</div></div>
-              <div class="service-mini"><div class="icon">📶</div><div class="label">eSIM / RSIM</div></div>
-              <div class="service-mini"><div class="icon">🧰</div><div class="label">Software</div></div>
-              <div class="service-mini"><div class="icon">🛒</div><div class="label">Pantallas</div></div>
+            <div class="hero-stats">
+              <div class="stat"><strong>1.2k+</strong><span>Pedidos</span></div>
+              <div class="stat"><strong>24/7</strong><span>Atención</span></div>
+              <div class="stat"><strong>4.9/5</strong><span>Calidad</span></div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="device-card">
+              <div class="device-screen">
+                <div class="screen-top">
+                  <span>Smart Fix</span>
+                  <div class="signal"><span></span><span></span><span></span></div>
+                </div>
+                <div class="screen-content">
+                  <div class="mini-card">
+                    <span>Especialistas</span>
+                    <strong>Reparación y liberación</strong>
+                    <div class="chips">
+                      <span class="chip">eSIM</span>
+                      <span class="chip">RSIM</span>
+                      <span class="chip">Android</span>
+                    </div>
+                  </div>
+                  <div class="device-grid">
+                    <div class="device-item">
+                      <strong>850+</strong>
+                      <small>Modelos</small>
+                    </div>
+                    <div class="device-item">
+                      <strong>⚡</strong>
+                      <small>Soporte rápido</small>
+                    </div>
+                  </div>
+                  <div class="mini-card">
+                    <span>Promoción</span>
+                    <strong>Pantalla + montaje</strong>
+                    <div class="chips">
+                      <span class="chip">4,000 CUP</span>
+                      <span class="chip">WhatsApp</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section-split" id="servicios">
-        <div class="split-grid">
-          <article class="panel panel-client" role="button" onclick="document.getElementById('tienda').scrollIntoView({behavior:'smooth'})">
-            <div class="panel-inner">
-              <div>
-                <div class="panel-badge">👥 Clientes</div>
-                <h2 class="panel-title">Compra fácil</h2>
-                <p class="panel-copy">Pantallas, accesorios y soluciones rápidas para tu equipo. Consulta precios y compra con asesoría directa.</p>
-                <ul class="panel-list">
-                  <li>Pantallas con o sin montaje</li>
-                  <li>Accesorios y repuestos</li>
-                  <li>Soporte técnico directo</li>
-                  <li>Pedidos y seguimiento por WhatsApp</li>
-                </ul>
-              </div>
-              <div class="panel-footer">
-                <button class="primary-btn" type="button" onclick="event.stopPropagation();document.getElementById('tienda').scrollIntoView({behavior:'smooth'})">Ir a la tienda</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="panel panel-tech" role="button" onclick="window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica.', '_blank')">
-            <div class="panel-inner">
-              <div>
-                <div class="panel-badge">⚙️ Técnicos</div>
-                <h2 class="panel-title">Soluciones pro</h2>
-                <p class="panel-copy">Herramientas, soporte y asistencia técnica para reparación, programación, liberación y trabajos especializados.</p>
-                <ul class="panel-list">
-                  <li>Reparación y diagnóstico</li>
-                  <li>Software y reprogramación</li>
-                  <li>eSIM / RSIM y liberación</li>
-                  <li>Inventario y asesoría profesional</li>
-                </ul>
-              </div>
-              <div class="panel-footer">
-                <button class="ghost-btn" type="button" onclick="event.stopPropagation(); window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica.', '_blank')">Solicitar asesoría</button>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <div class="shop-wrap" id="tienda">
-        <div class="shop-box">
-          <div class="shop-header">
-            <h3>🛒 Tienda Active Unlock</h3>
-            <span class="live">En línea</span>
-          </div>
-
-          <div class="shopbar">
-            <input id="search" class="search" placeholder="Buscar modelo..." oninput="renderProducts()">
-            <select id="brandFilter" class="select" onchange="renderProducts()">
-              <option value="">Todas las marcas</option>
-            </select>
-            <select id="availability" class="select" onchange="renderProducts()">
-              <option value="">Todo</option>
-              <option value="yes">Disponibles</option>
-              <option value="no">Agotadas</option>
-            </select>
-          </div>
-
-          <div class="products" id="products"></div>
+    <section class="container section" id="servicios">
+      <div class="section-head">
+        <div>
+          <div class="pill">Servicios</div>
+          <h2>Soluciones para cada necesidad</h2>
         </div>
       </div>
 
-      <div class="brand-wall">
-        <div class="brand-wrap">
-          <div class="brand-row">
-            <div class="brand-chip"><span class="mark">S</span>Samsung</div>
-            <div class="brand-chip"><span class="mark">A</span>Apple</div>
-            <div class="brand-chip"><span class="mark">X</span>Xiaomi</div>
-            <div class="brand-chip"><span class="mark">H</span>Huawei</div>
-            <div class="brand-chip"><span class="mark">M</span>Motorola</div>
-            <div class="brand-chip"><span class="mark">G</span>Google</div>
-            <div class="brand-chip"><span class="mark">1+</span>OnePlus</div>
-            <div class="brand-chip"><span class="mark">O</span>OPPO</div>
-            <div class="brand-chip"><span class="mark">R</span>realme</div>
-            <div class="brand-chip"><span class="mark">T</span>Tecno</div>
-            <div class="brand-chip"><span class="mark">N</span>Nokia</div>
-            <div class="brand-chip"><span class="mark">Z</span>ZTE</div>
-            <div class="brand-chip"><span class="mark">S</span>Samsung</div>
-            <div class="brand-chip"><span class="mark">A</span>Apple</div>
-            <div class="brand-chip"><span class="mark">X</span>Xiaomi</div>
-            <div class="brand-chip"><span class="mark">H</span>Huawei</div>
-            <div class="brand-chip"><span class="mark">M</span>Motorola</div>
-            <div class="brand-chip"><span class="mark">G</span>Google</div>
-            <div class="brand-chip"><span class="mark">1+</span>OnePlus</div>
-            <div class="brand-chip"><span class="mark">O</span>OPPO</div>
-          </div>
-          <div class="brand-row reverse" style="margin-top:14px">
-            <div class="brand-chip"><span class="mark">U</span>UnlockTool</div>
-            <div class="brand-chip"><span class="mark">C</span>ChimeraTool</div>
-            <div class="brand-chip"><span class="mark">E</span>EFT Pro</div>
-            <div class="brand-chip"><span class="mark">H</span>Hydra Tool</div>
-            <div class="brand-chip"><span class="mark">M</span>UMT</div>
-            <div class="brand-chip"><span class="mark">O</span>Octoplus</div>
-            <div class="brand-chip"><span class="mark">Z</span>Z3X</div>
-            <div class="brand-chip"><span class="mark">P</span>Pandora</div>
-            <div class="brand-chip"><span class="mark">3</span>3uTools</div>
-            <div class="brand-chip"><span class="mark">i</span>iMazing</div>
-            <div class="brand-chip"><span class="mark">e</span>eSIM</div>
-            <div class="brand-chip"><span class="mark">U</span>UnlockTool</div>
-            <div class="brand-chip"><span class="mark">C</span>ChimeraTool</div>
-            <div class="brand-chip"><span class="mark">E</span>EFT Pro</div>
-            <div class="brand-chip"><span class="mark">H</span>Hydra Tool</div>
-            <div class="brand-chip"><span class="mark">M</span>UMT</div>
-            <div class="brand-chip"><span class="mark">O</span>Octoplus</div>
-            <div class="brand-chip"><span class="mark">Z</span>Z3X</div>
-            <div class="brand-chip"><span class="mark">P</span>Pandora</div>
-            <div class="brand-chip"><span class="mark">3</span>3uTools</div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">🔓</div>
+          <h3>Liberación</h3>
+          <p>Soluciones para redes, desbloqueos y conectividad compatible con múltiples operadores.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">🛠️</div>
+          <h3>Reparación</h3>
+          <p>Diagnóstico técnico, cambio de piezas y atención personalizada para equipos dañados.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">📶</div>
+          <h3>eSIM / RSIM</h3>
+          <p>Configuración y soporte para compatibilidad de redes, servicios y conectividad.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>Software</h3>
+          <p>Reprogramación, asistencia y optimización para un mejor rendimiento del equipo.</p>
+        </article>
+      </div>
+
+      <div class="promo-grid">
+        <div class="promo-card">
+          <div class="pill">Promoción</div>
+          <h3>Compra smart</h3>
+          <p>Pantallas con o sin montaje, repuestos y accesorios disponibles con atención directa por WhatsApp.</p>
+          <div class="promo-box">
+            <span class="promo-tag">Pantallas</span>
+            <span class="promo-tag">Accesorios</span>
+            <span class="promo-tag">Soporte</span>
           </div>
         </div>
-        <div class="brand-sub">Marcas, plataformas y herramientas</div>
-      </div>
-    </main>
 
-    <div class="modal" id="modal">
-      <div class="modalbox">
-        <button class="close" type="button" onclick="closeCart()">×</button>
-        <h3>Tu pedido</h3>
-        <div id="cartRows"></div>
-        <div class="total" id="total"></div>
-        <button class="cart-cta" type="button" onclick="sendWhatsApp()">Enviar pedido por WhatsApp</button>
+        <div class="promo-card">
+          <div class="pill">Especial</div>
+          <h3>Atención premium</h3>
+          <p>Asesoría técnica para clientes y técnicos. Compra segura, rápida y guiada por expertos.</p>
+          <div class="promo-box">
+            <span class="promo-tag">Clientes</span>
+            <span class="promo-tag">Técnicos</span>
+            <span class="promo-tag">WhatsApp</span>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section class="container shop-section" id="tienda">
+      <div class="shop-box">
+        <div class="section-head" style="margin-bottom:0">
+          <div>
+            <div class="pill">Tienda</div>
+            <h2>Catálogo premium</h2>
+          </div>
+        </div>
+
+        <div class="shop-toolbar">
+          <input id="search" class="shop-input" type="text" placeholder="Buscar modelo..." oninput="renderProducts()">
+          <select id="brandFilter" class="shop-select" onchange="renderProducts()">
+            <option value="">Todas las marcas</option>
+          </select>
+          <select id="availability" class="shop-select" onchange="renderProducts()">
+            <option value="">Todo</option>
+            <option value="yes">Disponibles</option>
+            <option value="no">Agotadas</option>
+          </select>
+        </div>
+
+        <div class="products" id="products"></div>
+      </div>
+    </section>
+
+    <section class="container brand-wall">
+      <div class="brand-wrap">
+        <div class="brand-row">
+          <div class="brand-chip"><span class="mark">S</span>Samsung</div>
+          <div class="brand-chip"><span class="mark">A</span>Apple</div>
+          <div class="brand-chip"><span class="mark">X</span>Xiaomi</div>
+          <div class="brand-chip"><span class="mark">H</span>Huawei</div>
+          <div class="brand-chip"><span class="mark">M</span>Motorola</div>
+          <div class="brand-chip"><span class="mark">G</span>Google</div>
+          <div class="brand-chip"><span class="mark">O</span>OPPO</div>
+          <div class="brand-chip"><span class="mark">T</span>Tecno</div>
+          <div class="brand-chip"><span class="mark">Z</span>ZTE</div>
+          <div class="brand-chip"><span class="mark">S</span>Samsung</div>
+          <div class="brand-chip"><span class="mark">A</span>Apple</div>
+          <div class="brand-chip"><span class="mark">X</span>Xiaomi</div>
+          <div class="brand-chip"><span class="mark">H</span>Huawei</div>
+          <div class="brand-chip"><span class="mark">M</span>Motorola</div>
+          <div class="brand-chip"><span class="mark">G</span>Google</div>
+          <div class="brand-chip"><span class="mark">O</span>OPPO</div>
+          <div class="brand-chip"><span class="mark">T</span>Tecno</div>
+          <div class="brand-chip"><span class="mark">Z</span>ZTE</div>
+        </div>
+        <div class="brand-row reverse" style="margin-top:12px">
+          <div class="brand-chip"><span class="mark">U</span>UnlockTool</div>
+          <div class="brand-chip"><span class="mark">C</span>Chimera</div>
+          <div class="brand-chip"><span class="mark">E</span>EFT Pro</div>
+          <div class="brand-chip"><span class="mark">H</span>Hydra</div>
+          <div class="brand-chip"><span class="mark">M</span>UMT</div>
+          <div class="brand-chip"><span class="mark">O</span>Octoplus</div>
+          <div class="brand-chip"><span class="mark">Z</span>Z3X</div>
+          <div class="brand-chip"><span class="mark">P</span>Pandora</div>
+          <div class="brand-chip"><span class="mark">3</span>3uTools</div>
+          <div class="brand-chip"><span class="mark">e</span>eSIM</div>
+          <div class="brand-chip"><span class="mark">U</span>UnlockTool</div>
+          <div class="brand-chip"><span class="mark">C</span>Chimera</div>
+          <div class="brand-chip"><span class="mark">E</span>EFT Pro</div>
+          <div class="brand-chip"><span class="mark">H</span>Hydra</div>
+          <div class="brand-chip"><span class="mark">M</span>UMT</div>
+          <div class="brand-chip"><span class="mark">O</span>Octoplus</div>
+          <div class="brand-chip"><span class="mark">Z</span>Z3X</div>
+          <div class="brand-chip"><span class="mark">P</span>Pandora</div>
+          <div class="brand-chip"><span class="mark">3</span>3uTools</div>
+        </div>
+      </div>
+      <div class="brand-note">Marcas · Plataformas · Herramientas</div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="close" type="button" onclick="closeCart()">×</button>
+      <h3>Tu pedido</h3>
+      <div id="cartRows"></div>
+      <div id="cartTotal" class="cart-total"></div>
+      <button class="send-cart" type="button" onclick="sendWhatsApp()">Enviar por WhatsApp</button>
     </div>
+  </div>
 
-    <a class="wa" href="https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener">💬 WhatsApp</a>
+  <a class="wa-float" href="https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener">WhatsApp</a>
 
-    <footer>
-      Active Unlock · Servicio Técnico de Celulares · Libera · Repara · Conecta
-    </footer>
+  <footer>Active Unlock · Servicio Técnico de Celulares · Libera · Repara · Conecta</footer>
 
-    <script>
-      const MOUNT = 4000;
-      const WA = "5355323969";
-      const products = [
-        {brand:"Samsung", model:"A01 Core", usd:12.59, cup:8500, qty:0},
-        {brand:"Samsung", model:"A02S / A03S / A04E / F04", usd:12.59, cup:8500, qty:3},
-        {brand:"Samsung", model:"A03 Core (A032F / A032M)", usd:14.81, cup:10000, qty:8},
-        {brand:"Samsung", model:"A04", usd:12.59, cup:8500, qty:28},
-        {brand:"Samsung", model:"A05 / F05", usd:16.3, cup:11000, qty:3},
-        {brand:"Samsung", model:"A10", usd:13.33, cup:9000, qty:16},
-        {brand:"Samsung", model:"A11 (A115) / M11", usd:12.59, cup:8500, qty:7},
-        {brand:"Samsung", model:"A12 / F12 / M12", usd:13.33, cup:9000, qty:44},
-        {brand:"Samsung", model:"A13 / F13 / M13", usd:16.3, cup:11000, qty:1},
-        {brand:"Samsung", model:"A14 4G", usd:12.59, cup:8500, qty:11},
-        {brand:"Samsung", model:"A15 Incell", usd:20, cup:13500, qty:7},
-        {brand:"Samsung", model:"A16", usd:23.7, cup:16000, qty:3},
-        {brand:"Samsung", model:"J2 Core (J260)", usd:13.33, cup:9000, qty:3},
-        {brand:"Samsung", model:"J3 / J5", usd:11.85, cup:8000, qty:1},
-        {brand:"Samsung", model:"J4", usd:12.59, cup:8500, qty:7},
-        {brand:"Samsung", model:"J7 Prime / G610M", usd:11.85, cup:8000, qty:0},
-        {brand:"Samsung", model:"J7 (J710)", usd:11.85, cup:8000, qty:8},
-        {brand:"Xiaomi", model:"Redmi A1 / A2 / Poco C51", usd:16.3, cup:11000, qty:31},
-        {brand:"Xiaomi", model:"Redmi A3 / A3X / Poco C61", usd:14.81, cup:10000, qty:17},
-        {brand:"Xiaomi", model:"Redmi 6 / 6A", usd:12.59, cup:8500, qty:12},
-        {brand:"Xiaomi", model:"Redmi 9A / 9C / 10A", usd:14.81, cup:10000, qty:73},
-        {brand:"Xiaomi", model:"Redmi 9T / Poco M3", usd:12.59, cup:8500, qty:19},
-        {brand:"Xiaomi", model:"Redmi 10C / Poco C40", usd:12.59, cup:8500, qty:10},
-        {brand:"Xiaomi", model:"Redmi 12", usd:12.59, cup:8500, qty:11},
-        {brand:"Xiaomi", model:"Mi A2 / 6X", usd:15.56, cup:10500, qty:8},
-        {brand:"Xiaomi", model:"Mi A3", usd:16.3, cup:11000, qty:9},
-        {brand:"Xiaomi", model:"Note 11 5G", usd:13.33, cup:9000, qty:7},
-        {brand:"Xiaomi", model:"Note 12 (Oled)", usd:37.04, cup:25000, qty:10},
-        {brand:"Huawei", model:"Honor 8X", usd:13.33, cup:9000, qty:1},
-        {brand:"Huawei", model:"Mate 20 Lite", usd:13.33, cup:9000, qty:7},
-        {brand:"Huawei", model:"P20 Lite", usd:12.59, cup:8500, qty:18},
-        {brand:"Huawei", model:"P30 Lite", usd:16.3, cup:11000, qty:0},
-        {brand:"Huawei", model:"Honor X8 4G", usd:13.33, cup:9000, qty:4},
-        {brand:"Huawei", model:"Y5 / 2018", usd:12.59, cup:8500, qty:5},
-        {brand:"Huawei", model:"Y5 / 2019", usd:12.59, cup:8500, qty:12},
-        {brand:"Huawei", model:"Y6 / 2018", usd:12.59, cup:8500, qty:5},
-        {brand:"Huawei", model:"Y7 / 2019", usd:12.59, cup:8500, qty:5},
-        {brand:"Motorola", model:"E13 / G23", usd:18.52, cup:12500, qty:19},
-        {brand:"Motorola", model:"E15", usd:18.52, cup:12500, qty:2},
-        {brand:"Motorola", model:"E20", usd:14.07, cup:9500, qty:7},
-        {brand:"Motorola", model:"E22 / E22i", usd:16.3, cup:11000, qty:5},
-        {brand:"Motorola", model:"G6 Play / E5", usd:12.59, cup:8500, qty:11},
-        {brand:"Motorola", model:"G7 Play", usd:12.59, cup:8500, qty:3},
-        {brand:"Motorola", model:"G9 Play", usd:12.59, cup:8500, qty:5},
-        {brand:"Motorola", model:"G Play 2023", usd:17.78, cup:12000, qty:13},
-        {brand:"Motorola", model:"G Pure", usd:17.04, cup:11500, qty:16},
-        {brand:"Motorola", model:"G Power 2021", usd:17.78, cup:12000, qty:14},
-        {brand:"Motorola", model:"G Stylus 2023", usd:17.78, cup:12000, qty:3},
-        {brand:"Alcatel", model:"5002", usd:14.81, cup:10000, qty:8},
-        {brand:"Alcatel", model:"5024", usd:16.3, cup:11000, qty:14},
-        {brand:"Alcatel", model:"5028 / 5029", usd:16.3, cup:11000, qty:30},
-        {brand:"TeCno", model:"Spark Go 2022", usd:16.3, cup:11000, qty:7},
-        {brand:"TeCno", model:"Spark Go 2023 / Smart 8", usd:16.3, cup:11000, qty:69},
-        {brand:"TeCno", model:"Go 2024 / Spark 20", usd:16.3, cup:11000, qty:24},
-        {brand:"Apple", model:"iPhone XR", usd:20.74, cup:14000, qty:7},
-        {brand:"Apple", model:"iPhone 11", usd:20.74, cup:14000, qty:2},
-        {brand:"Apple", model:"iPhone 12 Pro Max Oled", usd:62.22, cup:42000, qty:1},
-        {brand:"ZTE", model:"A51 / A71", usd:17.04, cup:11500, qty:4},
-        {brand:"OnePlus", model:"OPPO A53 / N100", usd:12.59, cup:8500, qty:8},
-        {brand:"OnePlus", model:"N200", usd:14.07, cup:9500, qty:0}
-      ];
+  <script>
+    const MOUNT = 4000;
+    const WA = "5355323969";
+    const products = [
+      {brand:"Samsung", model:"A01 Core", usd:12.59, cup:8500, qty:0},
+      {brand:"Samsung", model:"A02S / A03S / A04E / F04", usd:12.59, cup:8500, qty:3},
+      {brand:"Samsung", model:"A03 Core (A032F / A032M)", usd:14.81, cup:10000, qty:8},
+      {brand:"Samsung", model:"A04", usd:12.59, cup:8500, qty:28},
+      {brand:"Samsung", model:"A05 / F05", usd:16.3, cup:11000, qty:3},
+      {brand:"Samsung", model:"A10", usd:13.33, cup:9000, qty:16},
+      {brand:"Samsung", model:"A11 (A115) / M11", usd:12.59, cup:8500, qty:7},
+      {brand:"Samsung", model:"A12 / F12 / M12", usd:13.33, cup:9000, qty:44},
+      {brand:"Samsung", model:"A13 / F13 / M13", usd:16.3, cup:11000, qty:1},
+      {brand:"Samsung", model:"A14 4G", usd:12.59, cup:8500, qty:11},
+      {brand:"Samsung", model:"A15 Incell", usd:20, cup:13500, qty:7},
+      {brand:"Samsung", model:"A16", usd:23.7, cup:16000, qty:3},
+      {brand:"Samsung", model:"J2 Core (J260)", usd:13.33, cup:9000, qty:3},
+      {brand:"Samsung", model:"J3 / J5", usd:11.85, cup:8000, qty:1},
+      {brand:"Samsung", model:"J4", usd:12.59, cup:8500, qty:7},
+      {brand:"Samsung", model:"J7 Prime / G610M", usd:11.85, cup:8000, qty:0},
+      {brand:"Samsung", model:"J7 (J710)", usd:11.85, cup:8000, qty:8},
+      {brand:"Xiaomi", model:"Redmi A1 / A2 / Poco C51", usd:16.3, cup:11000, qty:31},
+      {brand:"Xiaomi", model:"Redmi A3 / A3X / Poco C61", usd:14.81, cup:10000, qty:17},
+      {brand:"Xiaomi", model:"Redmi 6 / 6A", usd:12.59, cup:8500, qty:12},
+      {brand:"Xiaomi", model:"Redmi 9A / 9C / 10A", usd:14.81, cup:10000, qty:73},
+      {brand:"Xiaomi", model:"Redmi 9T / Poco M3", usd:12.59, cup:8500, qty:19},
+      {brand:"Xiaomi", model:"Redmi 10C / Poco C40", usd:12.59, cup:8500, qty:10},
+      {brand:"Xiaomi", model:"Redmi 12", usd:12.59, cup:8500, qty:11},
+      {brand:"Xiaomi", model:"Mi A2 / 6X", usd:15.56, cup:10500, qty:8},
+      {brand:"Xiaomi", model:"Mi A3", usd:16.3, cup:11000, qty:9},
+      {brand:"Xiaomi", model:"Note 11 5G", usd:13.33, cup:9000, qty:7},
+      {brand:"Xiaomi", model:"Note 12 (Oled)", usd:37.04, cup:25000, qty:10},
+      {brand:"Huawei", model:"Honor 8X", usd:13.33, cup:9000, qty:1},
+      {brand:"Huawei", model:"Mate 20 Lite", usd:13.33, cup:9000, qty:7},
+      {brand:"Huawei", model:"P20 Lite", usd:12.59, cup:8500, qty:18},
+      {brand:"Huawei", model:"P30 Lite", usd:16.3, cup:11000, qty:0},
+      {brand:"Huawei", model:"Honor X8 4G", usd:13.33, cup:9000, qty:4},
+      {brand:"Huawei", model:"Y5 / 2018", usd:12.59, cup:8500, qty:5},
+      {brand:"Huawei", model:"Y5 / 2019", usd:12.59, cup:8500, qty:12},
+      {brand:"Huawei", model:"Y6 / 2018", usd:12.59, cup:8500, qty:5},
+      {brand:"Huawei", model:"Y7 / 2019", usd:12.59, cup:8500, qty:5},
+      {brand:"Motorola", model:"E13 / G23", usd:18.52, cup:12500, qty:19},
+      {brand:"Motorola", model:"E15", usd:18.52, cup:12500, qty:2},
+      {brand:"Motorola", model:"E20", usd:14.07, cup:9500, qty:7},
+      {brand:"Motorola", model:"E22 / E22i", usd:16.3, cup:11000, qty:5},
+      {brand:"Motorola", model:"G6 Play / E5", usd:12.59, cup:8500, qty:11},
+      {brand:"Motorola", model:"G7 Play", usd:12.59, cup:8500, qty:3},
+      {brand:"Motorola", model:"G9 Play", usd:12.59, cup:8500, qty:5},
+      {brand:"Motorola", model:"G Play 2023", usd:17.78, cup:12000, qty:13},
+      {brand:"Motorola", model:"G Pure", usd:17.04, cup:11500, qty:16},
+      {brand:"Motorola", model:"G Power 2021", usd:17.78, cup:12000, qty:14},
+      {brand:"Motorola", model:"G Stylus 2023", usd:17.78, cup:12000, qty:3},
+      {brand:"Alcatel", model:"5002", usd:14.81, cup:10000, qty:8},
+      {brand:"Alcatel", model:"5024", usd:16.3, cup:11000, qty:14},
+      {brand:"Alcatel", model:"5028 / 5029", usd:16.3, cup:11000, qty:30},
+      {brand:"TeCno", model:"Spark Go 2022", usd:16.3, cup:11000, qty:7},
+      {brand:"TeCno", model:"Spark Go 2023 / Smart 8", usd:16.3, cup:11000, qty:69},
+      {brand:"TeCno", model:"Go 2024 / Spark 20", usd:16.3, cup:11000, qty:24},
+      {brand:"Apple", model:"iPhone XR", usd:20.74, cup:14000, qty:7},
+      {brand:"Apple", model:"iPhone 11", usd:20.74, cup:14000, qty:2},
+      {brand:"Apple", model:"iPhone 12 Pro Max Oled", usd:62.22, cup:42000, qty:1},
+      {brand:"ZTE", model:"A51 / A71", usd:17.04, cup:11500, qty:4},
+      {brand:"OnePlus", model:"OPPO A53 / N100", usd:12.59, cup:8500, qty:8},
+      {brand:"OnePlus", model:"N200", usd:14.07, cup:9500, qty:0}
+    ];
 
-      let cart = [];
-      const brands = [...new Set(products.map(p => p.brand))].sort();
-      const brandFilter = document.getElementById("brandFilter");
-      brandFilter.innerHTML = '<option value="">Todas las marcas</option>' + brands.map(b => `<option value="${escapeHtml(b)}">${escapeHtml(b)}</option>`).join("");
+    let cart = [];
+    const brands = [...new Set(products.map(p => p.brand))].sort();
+    const brandFilter = document.getElementById('brandFilter');
+    brandFilter.innerHTML = '<option value="">Todas las marcas</option>' + brands.map(b => `<option value="${escapeHtml(b)}">${escapeHtml(b)}</option>`).join('');
 
-      function escapeHtml(str){
-        return String(str).replace(/[&<>\"']/g, m => ({"&":"&amp;","<":"&lt;", ">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
-      }
-      function money(n){return new Intl.NumberFormat("es-CU").format(Math.round(n)) + " CUP";}
+    function escapeHtml(str){
+      return String(str).replace(/[&<>\"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]));
+    }
 
-      function renderProducts(){
-        const q = document.getElementById("search").value.toLowerCase().trim();
-        const selectedBrand = brandFilter.value;
-        const selectedAvailability = document.getElementById("availability").value;
-        const list = products.filter(p => {
-          const matchQuery = !q || p.model.toLowerCase().includes(q);
-          const matchBrand = !selectedBrand || p.brand === selectedBrand;
-          const matchAvailability = !selectedAvailability || (selectedAvailability === "yes" ? p.qty > 0 : p.qty <= 0);
-          return matchQuery && matchBrand && matchAvailability;
-        });
+    function money(value){
+      return new Intl.NumberFormat('es-CU').format(Math.round(value)) + ' CUP';
+    }
 
-        const productsNode = document.getElementById("products");
-        productsNode.innerHTML = list.length ? list.map(p => {
-          const index = products.indexOf(p);
-          const ok = p.qty > 0;
-          return `
-            <article class="card">
-              <span class="tag">${escapeHtml(p.brand)}</span>
-              <h3>${escapeHtml(p.model)}</h3>
-              <div class="price">${money(p.cup)}</div>
-              <div class="usd">≈ US$${p.usd.toFixed(2)} · Pantalla</div>
-              <div class="stock ${ok ? 'ok' : 'no'}">${ok ? 'Disponible: ' + p.qty : 'Agotada'}</div>
-              <button ${ok ? '' : 'disabled'} type="button" onclick="addToCart(${index}, false)">Pantalla sola</button>
-              <button ${ok ? '' : 'disabled'} type="button" onclick="addToCart(${index}, true)">Pantalla + montaje</button>
-            </article>
-          `;
-        }).join("") : `<div class="card" style="grid-column:1 / -1;">No encontramos ese modelo.</div>`;
+    function renderProducts(){
+      const q = document.getElementById('search').value.toLowerCase().trim();
+      const selectedBrand = brandFilter.value;
+      const selectedAvailability = document.getElementById('availability').value;
+      const list = products.filter(p => {
+        const matchText = !q || p.model.toLowerCase().includes(q);
+        const matchBrand = !selectedBrand || p.brand === selectedBrand;
+        const matchAvail = !selectedAvailability || (selectedAvailability === 'yes' ? p.qty > 0 : p.qty <= 0);
+        return matchText && matchBrand && matchAvail;
+      });
+
+      const node = document.getElementById('products');
+      if (!list.length) {
+        node.innerHTML = '<div class="product-card" style="grid-column:1/-1">No encontramos ese modelo.</div>';
+        return;
       }
 
-      function addToCart(index, withMount){
-        const product = products[index];
-        if (!product || product.qty <= 0) return;
-        cart.push({ product, withMount });
-        document.getElementById("cartCount").textContent = cart.length;
-        openCart();
+      node.innerHTML = list.map((product) => {
+        const index = products.indexOf(product);
+        const available = product.qty > 0;
+        return `
+          <article class="product-card">
+            <span class="product-tag">${escapeHtml(product.brand)}</span>
+            <h3>${escapeHtml(product.model)}</h3>
+            <div class="price">${money(product.cup)}</div>
+            <div class="price-sub">≈ US$${product.usd.toFixed(2)} · Pantalla</div>
+            <div class="stock ${available ? 'ok' : 'no'}">${available ? 'Disponible: ' + product.qty : 'Agotada'}</div>
+            <button ${available ? '' : 'disabled'} type="button" onclick="addToCart(${index}, false)">Pantalla sola</button>
+            <button ${available ? '' : 'disabled'} type="button" class="secondary" onclick="addToCart(${index}, true)">Pantalla + montaje</button>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function addToCart(index, withMount){
+      const product = products[index];
+      if (!product || product.qty <= 0) return;
+      cart.push({ product, withMount });
+      document.getElementById('cartCount').textContent = cart.length;
+      openCart();
+    }
+
+    function openCart(){
+      renderCart();
+      document.getElementById('modal').classList.add('open');
+    }
+
+    function closeCart(){
+      document.getElementById('modal').classList.remove('open');
+    }
+
+    function renderCart(){
+      const rows = document.getElementById('cartRows');
+      const totalEl = document.getElementById('cartTotal');
+      if (!cart.length) {
+        rows.innerHTML = "<p style='color:#aaa;margin:0'>Tu pedido está vacío.</p>";
+        totalEl.textContent = ''; 
+        return;
       }
 
-      function openCart(){
-        drawCart();
-        document.getElementById("modal").classList.add("open");
-      }
-
-      function closeCart(){
-        document.getElementById("modal").classList.remove("open");
-      }
-
-      function drawCart(){
-        const rows = document.getElementById("cartRows");
-        const totalEl = document.getElementById("total");
-        if (!cart.length){
-          rows.innerHTML = "<p style='color:#aaa'>Tu pedido está vacío.</p>";
-          totalEl.textContent = "";
-          return;
-        }
-
-        let total = 0;
-        rows.innerHTML = cart.map((item, idx) => {
-          const amount = item.product.cup + (item.withMount ? MOUNT : 0);
-          total += amount;
-          return `
-            <div class="cartrow">
-              <span>
-                ${escapeHtml(item.product.brand)} ${escapeHtml(item.product.model)}<br>
-                <small>${item.withMount ? "Con montaje" : "Pantalla sola"}</small>
-              </span>
-              <div style="display:flex;align-items:center;gap:10px;">
-                <b>${money(amount)}</b>
-                <button type="button" onclick="removeFromCart(${idx})">×</button>
-              </div>
+      let total = 0;
+      rows.innerHTML = cart.map((item, idx) => {
+        const amount = item.product.cup + (item.withMount ? MOUNT : 0);
+        total += amount;
+        return `
+          <div class="cart-item">
+            <span>
+              ${escapeHtml(item.product.brand)} ${escapeHtml(item.product.model)}<br>
+              <small>${item.withMount ? 'Con montaje' : 'Pantalla sola'}</small>
+            </span>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <b>${money(amount)}</b>
+              <button type="button" onclick="removeFromCart(${idx})">×</button>
             </div>
-          `;
-        }).join("");
-        totalEl.textContent = "Total: " + money(total);
-      }
+          </div>
+        `;
+      }).join('');
 
-      function removeFromCart(index){
-        cart.splice(index, 1);
-        drawCart();
-        document.getElementById("cartCount").textContent = cart.length;
-      }
+      totalEl.textContent = 'Total: ' + money(total);
+    }
 
-      function sendWhatsApp(){
-        if (!cart.length) return;
-        const lines = cart.map(item => {
-          const amount = item.product.cup + (item.withMount ? MOUNT : 0);
-          return `• ${item.product.brand} ${item.product.model} — ${item.withMount ? "con montaje" : "pantalla sola"} — ${money(amount)}`;
-        });
-        const total = cart.reduce((sum, item) => sum + item.product.cup + (item.withMount ? MOUNT : 0), 0);
-        const text = encodeURIComponent("Hola Active Unlock, quiero hacer este pedido:\n" + lines.join("\n") + "\n\nTotal: " + money(total));
-        window.open("https://wa.me/" + WA + "?text=" + text, "_blank");
-      }
+    function removeFromCart(index){
+      cart.splice(index, 1);
+      document.getElementById('cartCount').textContent = cart.length;
+      renderCart();
+    }
 
-      renderProducts();
-    </script>
-  </body>
+    function sendWhatsApp(){
+      if (!cart.length) return;
+
+      const lines = cart.map(item => {
+        const amount = item.product.cup + (item.withMount ? MOUNT : 0);
+        return `• ${item.product.brand} ${item.product.model} — ${item.withMount ? 'con montaje' : 'pantalla sola'} — ${money(amount)}`;
+      });
+
+      const total = cart.reduce((sum, item) => sum + item.product.cup + (item.withMount ? MOUNT : 0), 0);
+      const text = encodeURIComponent('Hola Active Unlock, quiero hacer este pedido:\n' + lines.join('\n') + '\n\nTotal: ' + money(total));
+      window.open('https://wa.me/' + WA + '?text=' + text, '_blank');
+    }
+
+    renderProducts();
+  </script>
+</body>
 </html>
