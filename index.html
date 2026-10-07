@@ -127,10 +127,10 @@
       .brand-title .white{color:#f7f7f7; text-shadow:0 0 22px rgba(255,255,255,.12), 0 4px 12px rgba(0,0,0,.5)}
       .brand-title .red{color:var(--red); text-shadow:0 0 28px rgba(255,0,0,.55), 0 4px 12px rgba(0,0,0,.45)}
       .subtitle{margin-top:16px; color:#efefef; text-transform:uppercase; letter-spacing:.2em; font-size:clamp(1rem,2vw,2rem); font-weight:800}
-      .stroke-line{width:min(68vw, 680px); height:8px; margin:24px auto 18px; border-radius:999px; background:linear-gradient(90deg, transparent 0%, rgba(255,30,30,.92) 8%, rgba(255,30,30,.92) 92%, transparent 100%); box-shadow:0 0 20px rgba(255,30,30,.75)}
+      .stroke-line{width:min(68vw, 680px); height:8px; margin:24px auto 18px; border-radius:999px; background:linear-gradient(90deg, transparent 0%, rgba(255,30,30,.92) 8%, rgba(255,30,30,.92) 92%, transparent 100%); box-shadow:0 0 18px rgba(255,0,0,.35)}
 
       .services-mini{width:min(1100px,100%); display:grid; grid-template-columns:repeat(auto-fit, minmax(130px,1fr)); gap:16px; margin-top:14px}
-      .service-mini{min-height:110px; border:2px solid rgba(255,42,42,.9); border-radius:20px; background:linear-gradient(180deg, rgba(255,38,38,.06), rgba(0,0,0,.24)); box-shadow:0 0 20px rgba(255,0,0,.08), inset 0 0 0 1px rgba(255,255,255,.04); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:8px; padding:14px 10px; transition:.28s ease}
+      .service-mini{min-height:110px; border:2px solid rgba(255,42,42,.9); border-radius:20px; background:linear-gradient(180deg, rgba(255,38,38,.06), rgba(0,0,0,.24)); box-shadow:0 0 20px rgba(255,0,0,.08); padding:14px 10px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; transition:.25s ease}
       .service-mini:hover{transform:translateY(-4px); box-shadow:0 0 28px rgba(255,0,0,.15), inset 0 0 0 1px rgba(255,255,255,.05)}
       .service-mini .icon{font-size:2.2rem}
       .service-mini .label{font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:800; line-height:1.3; color:#f2f2f2}
@@ -139,12 +139,12 @@
       .split-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px}
       .panel{position:relative; overflow:hidden; border-radius:28px; min-height:470px; transition:.32s ease; cursor:pointer}
       .panel:hover{transform:translateY(-6px)}
-      .panel-client{background:radial-gradient(circle at 50% 18%, rgba(255,33,33,.28), transparent 26%), radial-gradient(circle at 20% 80%, rgba(255,110,110,.12), transparent 18%), linear-gradient(135deg, rgba(18,18,18,.8), rgba(6,6,6,.94)); border:1.5px solid rgba(255,255,255,.08); box-shadow:0 30px 70px rgba(0,0,0,.52)}
-      .panel-client::before{content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 38%, rgba(255,0,0,.82), transparent 12%), linear-gradient(135deg, transparent 0 39%, rgba(255,255,255,.05) 39% 42%, transparent 42% 100%), linear-gradient(45deg, transparent 0 56%, rgba(255,255,255,.04) 56% 58%, transparent 58% 100%); opacity:.85}
-      .panel-client::after{content:""; position:absolute; width:420px; height:420px; right:-90px; top:40px; border-radius:50%; background:radial-gradient(circle, rgba(255,40,40,.72), rgba(255,40,40,.18) 34%, rgba(0,0,0,0) 62%); filter:blur(14px); opacity:.9}
-      .panel-tech{background:radial-gradient(circle at 50% 10%, rgba(255,0,0,.18), transparent 30%), linear-gradient(180deg, rgba(15,15,15,.96), rgba(6,6,6,.98)); border:1.5px solid rgba(255,42,42,.25); box-shadow:0 30px 80px rgba(0,0,0,.62), inset 0 0 30px rgba(255,0,0,.08)}
-      .panel-inner{position:relative; z-index:1; height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:30px 26px 24px; background:linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.68))}
-      .panel-badge{display:inline-block; background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(8px); border-radius:12px; padding:8px 14px; font-size:11px; font-weight:900; letter-spacing:.15em; text-transform:uppercase}
+      .panel-client{background:radial-gradient(circle at 50% 18%, rgba(255,33,33,.28), transparent 26%), radial-gradient(circle at 20% 80%, rgba(255,110,110,.12), transparent 18%), linear-gradient(180deg, rgba(24,24,24,.96), rgba(8,8,8,.96)); border:1px solid rgba(255,255,255,.08)}
+      .panel-client::before{content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 38%, rgba(255,0,0,.82), transparent 12%), linear-gradient(135deg, transparent 0 39%, rgba(255,255,255,.02) 39%, rgba(255,255,255,.02) 40%, transparent 40%); opacity:.9}
+      .panel-client::after{content:""; position:absolute; width:420px; height:420px; right:-90px; top:40px; border-radius:50%; background:radial-gradient(circle, rgba(255,40,40,.72), rgba(255,40,40,.2) 33%, rgba(255,40,40,0) 60%); opacity:.6; filter:blur(8px)}
+      .panel-tech{background:radial-gradient(circle at 50% 10%, rgba(255,0,0,.18), transparent 30%), linear-gradient(180deg, rgba(15,15,15,.96), rgba(6,6,6,.98)); border:1.5px solid rgba(255,42,42,.4)}
+      .panel-inner{position:relative; z-index:1; height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:30px 26px 24px; background:linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.34));}
+      .panel-badge{display:inline-block; background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(8px); border-radius:12px; padding:8px 14px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:800}
       .panel-tech .panel-badge{background:rgba(255,48,48,.08); border-color:rgba(255,48,48,.4); color:#ffb3b8}
       .panel-title{margin:20px 0 12px; font-size:clamp(2.2rem,4vw,4rem); line-height:.92; letter-spacing:-.09em; font-weight:960}
       .panel-copy{color:rgba(255,255,255,.88); font-size:1.04rem; line-height:1.7; max-width:540px}
@@ -162,7 +162,7 @@
       .shop-box{background:linear-gradient(180deg, rgba(14,14,14,.88), rgba(8,8,8,.96)); border:1px solid rgba(255,255,255,.08); border-radius:26px; padding:22px 18px 20px; box-shadow:0 30px 70px rgba(0,0,0,.5)}
       .shop-header{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:18px}
       .shop-header h3{margin:0; font-size:clamp(2rem,3vw,3rem); letter-spacing:-.06em}
-      .shop-header .live{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,80,80,.45); background:rgba(255,48,48,.08); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.08em}
+      .shop-header .live{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,80,80,.45); background:rgba(255,48,48,.08); font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase}
       .shop-header .live:before{content:""; width:8px; height:8px; border-radius:50%; background:#38d17b; box-shadow:0 0 10px rgba(56,209,123,.85)}
       .shopbar{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 20px}
       .search,.select{background:#0d0d0d; border:1px solid #2d2d2d; color:#fff; border-radius:10px; padding:12px 14px; outline:none}
@@ -170,7 +170,7 @@
       .select{min-width:190px}
       .products{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px}
       .card{background:linear-gradient(145deg,#141414,#0a0a0a); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:16px}
-      .tag{display:inline-block; font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:#ff8a92; background:rgba(255,48,48,.08); border:1px solid rgba(255,48,48,.35); padding:5px 8px; border-radius:999px}
+      .tag{display:inline-block; font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:#ff8a92; background:rgba(255,48,48,.08); border:1px solid rgba(255,48,48,.3); border-radius:999px; padding:5px 8px}
       .card h3{margin:12px 0 10px; min-height:42px; line-height:1.22; font-size:16px}
       .price{font-size:22px; font-weight:950; letter-spacing:-.05em}
       .usd{color:#aaa; font-size:12px; margin-top:3px}
@@ -181,13 +181,13 @@
       .card button:disabled{background:#303030; border-color:#303030; color:#7b7b7b; cursor:not-allowed}
 
       .brand-wall{max-width:1280px; margin:0 auto; padding:12px 18px 30px}
-      .brand-wrap{overflow:hidden; position:relative; border-top:1.5px solid rgba(255,255,255,.08); border-bottom:1.5px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,.002)); padding:18px 0; mask-image:linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image:linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)}
+      .brand-wrap{overflow:hidden; position:relative; border-top:1.5px solid rgba(255,255,255,.08); border-bottom:1.5px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,25,25,.03), rgba(0,0,0,.0)); padding:12px 0}
       .brand-row{display:flex; width:max-content; gap:12px; animation:brandMove 28s linear infinite}
       .brand-row.reverse{animation-direction:reverse; animation-duration:34s}
       @keyframes brandMove{from{transform:translateX(0)} to{transform:translateX(-50%)}}
-      .brand-chip{min-width:155px; height:60px; border-radius:16px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(145deg,#161616,#0a0a0a); display:flex; align-items:center; justify-content:center; gap:10px; font-weight:900; letter-spacing:-.05em; font-size:1rem; color:#f5f5f5; padding:0 16px; white-space:nowrap; box-shadow:0 10px 20px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.05); transition:.25s ease}
+      .brand-chip{min-width:155px; height:60px; border-radius:16px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(145deg,#161616,#0a0a0a); display:flex; align-items:center; justify-content:center; gap:10px; color:#f7f7f7; font-weight:900; letter-spacing:-.02em; transition:.22s ease}
       .brand-chip:hover{transform:translateY(-3px); border-color:rgba(255,48,48,.5); box-shadow:0 16px 34px rgba(0,0,0,.35), 0 0 18px rgba(255,0,0,.12)}
-      .brand-chip .mark{width:30px; height:30px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); color:#ff7780; font-size:.85rem; font-weight:900}
+      .brand-chip .mark{width:30px; height:30px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); font-size:12px; color:#ffb4b9}
       .brand-sub{text-align:center; margin-top:14px; color:#787878; letter-spacing:.18em; text-transform:uppercase; font-size:12px; font-weight:800}
 
       .modal{position:fixed; inset:0; z-index:130; background:rgba(0,0,0,.76); backdrop-filter:blur(8px); display:none; align-items:center; justify-content:center; padding:18px}
@@ -206,7 +206,7 @@
       footer{max-width:1280px; margin:0 auto; padding:24px 18px 40px; color:#8a8a8a; text-align:center; border-top:1px solid rgba(255,255,255,.04)}
 
       @media (max-width:980px){.split-grid{grid-template-columns:1fr}.products{grid-template-columns:repeat(2, minmax(0,1fr))}}
-      @media (max-width:700px){.navlinks{display:none}.hero-brand{padding:32px 16px 22px; border-radius:24px}.logo-circle{width:min(82vw, 420px)}.products{grid-template-columns:1fr}.shop-header{align-items:flex-start}}
+      @media (max-width:700px){.navlinks{display:none}.hero-brand{padding:32px 16px 22px; border-radius:24px}.logo-circle{width:min(82vw, 420px)}.products{grid-template-columns:1fr}.shop-header{ display:flex; justify-content:space-between; } }
     </style>
   </head>
   <body>
@@ -284,7 +284,7 @@
                 </ul>
               </div>
               <div class="panel-footer">
-                <button class="ghost-btn" type="button" onclick="event.stopPropagation(); window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica.', '_blank')">Acceso técnico</button>
+                <button class="ghost-btn" type="button" onclick="event.stopPropagation(); window.open('https://wa.me/5355323969?text=Hola%20Active%20Unlock%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica.', '_blank')">Solicitar asesoría</button>
               </div>
             </div>
           </article>
@@ -453,7 +453,7 @@
       brandFilter.innerHTML = '<option value="">Todas las marcas</option>' + brands.map(b => `<option value="${escapeHtml(b)}">${escapeHtml(b)}</option>`).join("");
 
       function escapeHtml(str){
-        return String(str).replace(/[&<>\"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
+        return String(str).replace(/[&<>\"']/g, m => ({"&":"&amp;","<":"&lt;", ">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
       }
       function money(n){return new Intl.NumberFormat("es-CU").format(Math.round(n)) + " CUP";}
 
